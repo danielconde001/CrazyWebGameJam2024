@@ -32,9 +32,7 @@ public class PlayerMove : PlayerControl
         spriteRenderer.flipX = moveX > 0f ? false : moveX < 0f ? true : spriteRenderer.flipX;
 
         //transform.position += (Vector3)moveDirection * moveSpeed * Time.deltaTime;
-
         selfRigidbody2D.linearVelocity = moveDirection * moveSpeed * Time.fixedDeltaTime;
-        //selfRigidbody2D.AddForce(moveDirection * moveSpeed * Time.deltaTime, ForceMode2D.Impulse);
 
         #region Bounds
         if (bounds != null)

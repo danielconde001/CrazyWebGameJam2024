@@ -3747,14 +3747,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1405496839}
     - target: {fileID: 7284468875689016703, guid: 9bd8448d758ba9e4fa47fd763b50e84f, type: 3}
-      propertyPath: maxTimer
-      value: 9999
-      objectReference: {fileID: 0}
-    - target: {fileID: 7284468875689016703, guid: 9bd8448d758ba9e4fa47fd763b50e84f, type: 3}
-      propertyPath: minTimer
-      value: 999
-      objectReference: {fileID: 0}
-    - target: {fileID: 7284468875689016703, guid: 9bd8448d758ba9e4fa47fd763b50e84f, type: 3}
       propertyPath: 'spawnPoints.Array.data[0]'
       value: 
       objectReference: {fileID: 1064075839}
