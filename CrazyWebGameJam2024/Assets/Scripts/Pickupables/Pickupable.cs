@@ -1,8 +1,14 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 public class Pickupable : MonoBehaviour
 {
+    protected virtual void Awake()
+    {
+        
+    }
+
     protected virtual void Pickup(Collider2D collision)
     {
 

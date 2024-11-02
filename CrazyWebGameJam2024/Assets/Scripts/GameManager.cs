@@ -10,7 +10,19 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject crosshair;
+    [SerializeField] private bool spawnOnStart;
 
+    private Transform weaponAnchor;
+    public Transform WeaponAnchor
+    {
+        get => weaponAnchor;
+    }
+
+    public GameObject Player
+    {
+        get => player;
+    }
+    
     private static GameManager instance;
     public static GameManager Instance()
     {
@@ -25,15 +37,24 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        
         player = GameObject.FindGameObjectWithTag("Player");
+        weaponAnchor = player.transform.Find("weapon_anchor");
     }
 
     private void Start()
     {
-        StartCoroutine(StartSpawning());
+        if (spawnOnStart)
+            StartCoroutine(StartSpawningCoroutine());
     }
 
-    private IEnumerator StartSpawning()
+    public void StartSpawning()
+    { 
+        if (!spawnOnStart)
+            StartCoroutine(StartSpawningCoroutine());
+    }
+    
+    private IEnumerator StartSpawningCoroutine()
     {
         for (;;)
         {
@@ -75,5 +96,12 @@ public class GameManager : MonoBehaviour
             crosshair.SetActive(true);
 
         crosshair.transform.position = newPosition;
+    }
+
+    public void ReplaceEquippedGunWith()
+    {
+        //GameObject gunPrefab = GetGunPrefab(pGunType);
+        //GameObject weapon = (GameObject)Instantiate(GetGunPrefab(pGunType), gunPrefab.transform.position, Quaternion.identity);
+        //weapon.transform.SetParent(weaponAnchor, false);
     }
 }
