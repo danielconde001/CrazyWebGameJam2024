@@ -6,6 +6,7 @@ public class PlayerMove : PlayerControl
 {
     [SerializeField] private float moveSpeed = 4f;
     [SerializeField] private Bounds bounds;
+    private Rigidbody2D selfRigidbody2D;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     private Vector2 moveDirection;
@@ -14,6 +15,7 @@ public class PlayerMove : PlayerControl
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        selfRigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -29,7 +31,10 @@ public class PlayerMove : PlayerControl
         animator.SetFloat("Velocity", Vector3.ClampMagnitude(moveDirection, 1).magnitude);
         spriteRenderer.flipX = moveX > 0f ? false : moveX < 0f ? true : spriteRenderer.flipX;
 
-        transform.position += (Vector3)moveDirection * moveSpeed * Time.deltaTime;
+        //transform.position += (Vector3)moveDirection * moveSpeed * Time.deltaTime;
+
+        selfRigidbody2D.linearVelocity = moveDirection * moveSpeed * Time.fixedDeltaTime;
+        //selfRigidbody2D.AddForce(moveDirection * moveSpeed * Time.deltaTime, ForceMode2D.Impulse);
 
         #region Bounds
         if (bounds != null)
