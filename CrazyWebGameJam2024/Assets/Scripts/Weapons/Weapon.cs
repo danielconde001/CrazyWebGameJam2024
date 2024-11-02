@@ -93,7 +93,7 @@ public class Weapon : MonoBehaviour
     public void Equip()
     {
         GetCollider2D().enabled = false;
-        gameObject.transform.SetParent(GameManager.Instance().WeaponAnchor, false);
+        gameObject.transform.SetParent(PlayerManager.Instance().WeaponAnchor, false);
         gameObject.transform.localPosition = DefaultLocalPosition;
     }
     

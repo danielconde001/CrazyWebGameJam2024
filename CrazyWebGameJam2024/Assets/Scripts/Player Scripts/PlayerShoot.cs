@@ -32,18 +32,18 @@ public class PlayerShoot : PlayerControl
 
     private void Shoot()
     {
-        if (GameManager.Instance().CurrentlyEquippedWeapon == null)
+        if (PlayerManager.Instance().CurrentlyEquippedWeapon == null)
         {
             return;
         }
 
-        if (GameManager.Instance().CurrentlyEquippedWeapon.CurrentMagCapacity <= 0)
+        if (PlayerManager.Instance().CurrentlyEquippedWeapon.CurrentMagCapacity <= 0)
         {
             // Play empty gun click sound
             return;
         }
         
-        GameManager.Instance().CurrentlyEquippedWeapon.Fire();
+        PlayerManager.Instance().CurrentlyEquippedWeapon.Fire();
         
         playerTimeManipulation.TimeHiccup();
         ShowMuzzle();

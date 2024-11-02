@@ -19,7 +19,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Awake()
     {
-        player = GameManager.Instance().GetPlayer();
+        player = PlayerManager.Instance().GetPlayer();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -43,7 +43,7 @@ public class EnemyAI : MonoBehaviour
         transform.position += (Vector3)moveDirection * moveSpeed * Time.deltaTime;
         */
 
-        if (isStopped || GameManager.Instance().PlayerIsDead())
+        if (isStopped || PlayerManager.Instance().PlayerIsDead())
         {
             if(navMeshAgent.isStopped != true)
             {

@@ -19,13 +19,13 @@ public class PlayerAim : PlayerControl
         if (useCrosshair) GameManager.Instance().MoveCrosshair(mousePos);
 
         // Get the Normalized Vector between the Player's postion and Mouse Position
-        aimDirection = (mousePos - GameManager.Instance().CurrentlyEquippedWeapon.Center.position).normalized;
+        aimDirection = (mousePos - PlayerManager.Instance().CurrentlyEquippedWeapon.Center.position).normalized;
 
         // Get the angle of the aforementioned Vector
         float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
         
         // Set Weapon Anchor's z rotation equal to the angle
-        GameManager.Instance().WeaponAnchor.transform.localEulerAngles = new Vector3(0, 0, angle);
+        PlayerManager.Instance().WeaponAnchor.transform.localEulerAngles = new Vector3(0, 0, angle);
     }
 
     public Vector2 GetAimDirection()
@@ -35,6 +35,6 @@ public class PlayerAim : PlayerControl
 
     public Transform GetCenterTransform()
     {
-        return GameManager.Instance().CurrentlyEquippedWeapon.Center.transform;
+        return PlayerManager.Instance().CurrentlyEquippedWeapon.Center.transform;
     }
 }

@@ -16,7 +16,7 @@ public class WeaponPickup : Pickupable
     {
         if(collision.CompareTag("Player"))
         {
-            GameManager.Instance().ReplaceEquippedGunWith(this.weapon);
+            PlayerManager.Instance().ReplaceEquippedGunWith(this.weapon);
         }
     }
 }
