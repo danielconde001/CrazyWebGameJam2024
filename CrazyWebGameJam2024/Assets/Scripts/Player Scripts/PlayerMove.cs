@@ -11,6 +11,11 @@ public class PlayerMove : PlayerControl
     private SpriteRenderer spriteRenderer;
     private Vector2 moveDirection;
 
+    public void StopMove()
+    {
+        selfRigidbody2D.linearVelocity = Vector2.zero;
+    }
+
     private void Awake()
     {
         animator = GetComponent<Animator>();

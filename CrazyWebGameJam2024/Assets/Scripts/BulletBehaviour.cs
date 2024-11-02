@@ -5,6 +5,12 @@ public class BulletBehaviour : MonoBehaviour
 {
     [SerializeField] private float bulletSpeed;
     private Vector2 bulletDirection = Vector2.right;
+    private Rigidbody2D selfRigidbody2D;
+
+    private void Awake()
+    {
+        selfRigidbody2D = GetComponent<Rigidbody2D>();
+    }
 
     private void Start()
     {
@@ -13,7 +19,8 @@ public class BulletBehaviour : MonoBehaviour
 
     private void Update()
     {
-        transform.position += (Vector3)bulletDirection * bulletSpeed * Time.deltaTime;
+        //transform.position += (Vector3)bulletDirection * bulletSpeed * Time.deltaTime;
+        selfRigidbody2D.linearVelocity = bulletDirection * bulletSpeed * Time.fixedDeltaTime;
     }
 
     public void SetBulletDirection(Vector2 newDirection)
@@ -26,6 +33,11 @@ public class BulletBehaviour : MonoBehaviour
         if (collision.tag == "Enemy")
         {
             collision.GetComponent<Health>().DeductHealth(1);
+            Destroy(gameObject);
+        }
+        
+        else if(collision.tag == "Obstacle")
+        {
             Destroy(gameObject);
         }
     }
