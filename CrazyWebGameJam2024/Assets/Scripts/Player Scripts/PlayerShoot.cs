@@ -9,11 +9,13 @@ public class PlayerShoot : PlayerControl
     [SerializeField] private GameObject muzzle;
     [SerializeField] private AudioClip gunshotClip;
     private PlayerAim playerAim;
+    private PlayerTimeManipulation playerTimeManipulation;
     private AudioSource audioSource;
 
     private void Awake()
     {
         playerAim = GetComponent<PlayerAim>();
+        playerTimeManipulation = GetComponent<PlayerTimeManipulation>();
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -30,6 +32,7 @@ public class PlayerShoot : PlayerControl
 
     private void Shoot()
     {
+        playerTimeManipulation.TimeHiccup();
         ShowMuzzle();
 
         BulletBehaviour spawnedBullet

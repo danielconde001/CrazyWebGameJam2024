@@ -5,9 +5,11 @@ public class PlayerTimeManipulation : PlayerControl
 {
     [SerializeField] private float defaultTimeSlowDuration;
     [SerializeField] private float timeSlowTransitionDuration;
+    [SerializeField] private float timeHiccupTransitionDuration;
     [SerializeField] private float slowTimeScale;
     [SerializeField] private float normalTimeScale;
 
+    private Tween timeSlowTween;
     private bool isTimeSlowed = false;
     private float timeSlowTimer = 0.0f;
 
@@ -21,7 +23,7 @@ public class PlayerTimeManipulation : PlayerControl
         if(timeSlowDuration > 0.0f)
         {
             timeSlowTimer = timeSlowDuration;
-            DOTween.To(()=> Time.timeScale, x=> Time.timeScale = x, slowTimeScale, timeSlowTransitionDuration).SetUpdate(UpdateType.Normal, true);
+            timeSlowTween = DOTween.To(()=> Time.timeScale, x=> Time.timeScale = x, slowTimeScale, timeSlowTransitionDuration).SetUpdate(UpdateType.Normal, true);
             isTimeSlowed = true;
         }
     }
@@ -30,8 +32,23 @@ public class PlayerTimeManipulation : PlayerControl
     {
         if(isTimeSlowed == true)
         {
-            DOTween.To(()=> Time.timeScale, x=> Time.timeScale = x, normalTimeScale, timeSlowTransitionDuration).SetUpdate(UpdateType.Normal, true);
+            timeSlowTween = DOTween.To(()=> Time.timeScale, x=> Time.timeScale = x, normalTimeScale, timeSlowTransitionDuration).SetUpdate(UpdateType.Normal, true);
             isTimeSlowed = false;
+        }
+    }
+
+    public void TimeHiccup()
+    {
+        if(isTimeSlowed == true)
+        {
+            Time.timeScale = normalTimeScale;
+
+            if(timeSlowTween != null)
+            {
+                timeSlowTween.Kill();
+            }
+
+            timeSlowTween = DOTween.To(()=> Time.timeScale, x=> Time.timeScale = x, slowTimeScale, timeHiccupTransitionDuration).SetUpdate(UpdateType.Normal, true);
         }
     }
 
