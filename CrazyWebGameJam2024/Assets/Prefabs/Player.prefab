@@ -502,6 +502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTimeSlowDuration: 5
   timeSlowTransitionDuration: 0.5
+  timeHiccupTransitionDuration: 0.25
   slowTimeScale: 0.25
   normalTimeScale: 1
 --- !u!1 &6843921019593971001
