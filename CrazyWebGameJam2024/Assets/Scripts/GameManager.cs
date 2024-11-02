@@ -9,20 +9,25 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<Transform> spawnPoints = new List<Transform>();
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private GameObject player;
+    [SerializeField] private Transform weaponAnchor;
     [SerializeField] private GameObject crosshair;
-    [SerializeField] private bool spawnOnStart;
-
-    private Transform weaponAnchor;
-    public Transform WeaponAnchor
+    [SerializeField] private bool spawnOnStart = true;
+    [SerializeField] private Weapon currentlyEquippedWeapon;
+    public Weapon CurrentlyEquippedWeapon
     {
-        get => weaponAnchor;
+        get => currentlyEquippedWeapon;
     }
 
     public GameObject Player
     {
         get => player;
     }
-    
+
+    public Transform WeaponAnchor
+    {
+        get => weaponAnchor;
+    }
+
     private static GameManager instance;
     public static GameManager Instance()
     {
@@ -37,9 +42,11 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        
-        player = GameObject.FindGameObjectWithTag("Player");
-        weaponAnchor = player.transform.Find("weapon_anchor");
+
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
     }
 
     private void Start()
@@ -74,7 +81,7 @@ public class GameManager : MonoBehaviour
         int rnd = Random.Range(0, spawnPoints.Count);
         Instantiate(enemyPrefab, spawnPoints[rnd]);
     }
-
+    
     public GameObject GetPlayer()
     {
         if (player == null)
@@ -97,11 +104,18 @@ public class GameManager : MonoBehaviour
 
         crosshair.transform.position = newPosition;
     }
-
-    public void ReplaceEquippedGunWith()
+    
+    public void ReplaceEquippedGunWith(Weapon pReplacementWeapon)
     {
-        //GameObject gunPrefab = GetGunPrefab(pGunType);
-        //GameObject weapon = (GameObject)Instantiate(GetGunPrefab(pGunType), gunPrefab.transform.position, Quaternion.identity);
-        //weapon.transform.SetParent(weaponAnchor, false);
+        Vector3 dropPosition = pReplacementWeapon.transform.position;
+        
+        pReplacementWeapon.Equip();
+        
+        if (currentlyEquippedWeapon != null)
+        {
+            currentlyEquippedWeapon.Unequip(dropPosition);
+        }
+        
+        currentlyEquippedWeapon = pReplacementWeapon;
     }
 }

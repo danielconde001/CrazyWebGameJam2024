@@ -49,6 +49,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -143,3 +146,4 @@ MonoBehaviour:
   enemyPrefab: {fileID: 8517496756415737315, guid: dd807c17971e9e940b34a3a9a3e6aee4, type: 3}
   player: {fileID: 0}
   crosshair: {fileID: 7768053757640277823}
+  spawnOnStart: 1

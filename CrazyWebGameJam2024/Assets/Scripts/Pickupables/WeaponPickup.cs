@@ -5,7 +5,7 @@ using UnityEngine;
 public class WeaponPickup : Pickupable
 {
     private Weapon weapon;
-
+    
     protected override void Awake()
     {
         base.Awake();
@@ -16,7 +16,7 @@ public class WeaponPickup : Pickupable
     {
         if(collision.CompareTag("Player"))
         {
-            GameManager.Instance().ReplaceEquippedGunWith();
+            GameManager.Instance().ReplaceEquippedGunWith(this.weapon);
         }
     }
 }

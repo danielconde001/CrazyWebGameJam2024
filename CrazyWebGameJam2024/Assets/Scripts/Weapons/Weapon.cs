@@ -19,6 +19,30 @@ public class Weapon : MonoBehaviour
         COUNT
     }
 
+    private void Awake()
+    {
+        weaponCollider = GetComponent<Collider2D>();
+        
+        if (center == null)
+        {
+            center = transform.Find("Center");
+        }
+    }
+    
+    private Collider2D weaponCollider = new Collider2D();
+
+    public Collider2D GetCollider2D()
+    {
+        return weaponCollider;
+    }
+
+    [SerializeField] private Transform center;
+
+    public Transform Center
+    {
+        get => center;
+    }
+
     [SerializeField] private WeaponType type;
     public WeaponType Type
     {
@@ -60,19 +84,29 @@ public class Weapon : MonoBehaviour
     {
         get => currentMagCapacity;
     }
-
-    [SerializeField] private bool isEquppiedByPlayer = false;
-    public bool IsEquppiedByPlayer
-    {
-        get => isEquppiedByPlayer;
-    }
     
     public void Fire()
     {
-        if (currentMagCapacity > 0)
-        {
-            currentMagCapacity -= 1;
-            
-        }
+        currentMagCapacity -= 1;
+    }
+
+    public void Equip()
+    {
+        GetCollider2D().enabled = false;
+        gameObject.transform.SetParent(GameManager.Instance().WeaponAnchor, false);
+        gameObject.transform.localPosition = DefaultLocalPosition;
+    }
+    
+    public void Unequip(Vector3 pDropPosition)
+    {
+        transform.SetParent(null);
+        transform.position = pDropPosition;
+        transform.localEulerAngles = Vector3.zero;
+        Invoke("EnableCollider", 3f);
+    }
+
+    private void EnableCollider()
+    {
+        GetCollider2D().enabled = true;
     }
 }
