@@ -23,7 +23,7 @@ public class PlayerTimeManipulation : PlayerControl
         if(timeSlowDuration > 0.0f)
         {
             timeSlowTimer = timeSlowDuration;
-            timeSlowTween = DOTween.To(()=> Time.timeScale, x=> Time.timeScale = x, slowTimeScale, timeSlowTransitionDuration).SetUpdate(UpdateType.Normal, true);
+            timeSlowTween = DOTween.To(()=> Time.timeScale, x=> Time.timeScale = x, slowTimeScale, timeSlowTransitionDuration).SetUpdate(UpdateType.Normal, true).SetEase(Ease.OutCirc);
             isTimeSlowed = true;
         }
     }
@@ -32,7 +32,7 @@ public class PlayerTimeManipulation : PlayerControl
     {
         if(isTimeSlowed == true)
         {
-            timeSlowTween = DOTween.To(()=> Time.timeScale, x=> Time.timeScale = x, normalTimeScale, timeSlowTransitionDuration).SetUpdate(UpdateType.Normal, true);
+            timeSlowTween = DOTween.To(()=> Time.timeScale, x=> Time.timeScale = x, normalTimeScale, timeSlowTransitionDuration).SetUpdate(UpdateType.Normal, true).SetEase(Ease.InCirc);
             isTimeSlowed = false;
         }
     }
@@ -48,7 +48,7 @@ public class PlayerTimeManipulation : PlayerControl
                 timeSlowTween.Kill();
             }
 
-            timeSlowTween = DOTween.To(()=> Time.timeScale, x=> Time.timeScale = x, slowTimeScale, timeHiccupTransitionDuration).SetUpdate(UpdateType.Normal, true);
+            timeSlowTween = DOTween.To(()=> Time.timeScale, x=> Time.timeScale = x, slowTimeScale, timeHiccupTransitionDuration).SetUpdate(UpdateType.Normal, true).SetEase(Ease.OutQuad);
         }
     }
 

@@ -3,11 +3,21 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class EnemyAttack : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    private EnemyAI enemyAI;
+
+    private void Awake()
     {
-        if (collision.tag == "Player")
+        enemyAI = GetComponent<EnemyAI>();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (enemyAI.IsStopped == false)
         {
-            collision.GetComponent<Health>().DeductHealth(1);
+            if (collision.gameObject.tag == "Player")
+            {
+                collision.gameObject.GetComponent<Health>().DeductHealth(1);
+            }
         }
     }
 }
