@@ -19,7 +19,7 @@ public class PlayerAim : PlayerControl
         if (useCrosshair) GameManager.Instance().MoveCrosshair(mousePos);
 
         // Get the Normalized Vector between the Player's position and Mouse Position
-        aimDirection = (mousePos - PlayerManager.Instance().CurrentlyEquippedWeapon.Center.position).normalized;
+        aimDirection = (mousePos - PlayerManager.Instance().WeaponAnchor.position).normalized;
 
         // Get the angle of the aforementioned Vector
         float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
