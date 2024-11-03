@@ -32,15 +32,11 @@ public class PlayerMove : PlayerControl
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
         
-        animator.SetFloat("MoveX", moveX);
-        animator.SetFloat("MoveY", moveY);
-
         if (moveY != 0 || moveX != 0)
         {
             animator.SetBool("isMoving", true);
-            
-            animator.SetFloat("LastMoveX", moveX);
-            animator.SetFloat("LastMoveY", moveY);
+            animator.SetFloat("MoveX", moveX);
+            animator.SetFloat("MoveY", moveY);
         }
         else
         {
