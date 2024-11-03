@@ -114,7 +114,7 @@ MonoBehaviour:
   currentMagCapacity: 2
   gunshotClip: {fileID: 8300000, guid: 3af557418f586a845a128f65393d3e56, type: 3}
   emptyMagClip: {fileID: 8300000, guid: 24c22b6c7fd8df645914244c58bf5eba, type: 3}
-  bullet: {fileID: 8406151069148535810, guid: b9ab7c2927c2a1b40b232a71bbe3dfb7, type: 3}
+  bullet: {fileID: 8406151069148535810, guid: 43394ac9173ee00408311d01b4298b10, type: 3}
   muzzle: {fileID: 1992386833674702433}
 --- !u!70 &3586154390601180334
 CapsuleCollider2D:
