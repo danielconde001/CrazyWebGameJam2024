@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
@@ -22,7 +23,7 @@ public class PlayerMove : PlayerControl
         spriteRenderer = GetComponent<SpriteRenderer>();
         selfRigidbody2D = GetComponent<Rigidbody2D>();
     }
-
+    
     private void Update()
     {
         if(!canControl)
@@ -30,13 +31,25 @@ public class PlayerMove : PlayerControl
 
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
+        
+        animator.SetFloat("MoveX", moveX);
+        animator.SetFloat("MoveY", moveY);
+
+        if (moveY != 0 || moveX != 0)
+        {
+            animator.SetBool("isMoving", true);
+            
+            animator.SetFloat("LastMoveX", moveX);
+            animator.SetFloat("LastMoveY", moveY);
+        }
+        else
+        {
+            animator.SetBool("isMoving", false);
+        }
+
         moveDirection = new Vector3(moveX, moveY).normalized;
         moveDirection = Vector3.ClampMagnitude(moveDirection, 1);
-
-        animator.SetFloat("Velocity", Vector3.ClampMagnitude(moveDirection, 1).magnitude);
-        spriteRenderer.flipX = moveX > 0f ? false : moveX < 0f ? true : spriteRenderer.flipX;
-
-        //transform.position += (Vector3)moveDirection * moveSpeed * Time.deltaTime;
+        
         selfRigidbody2D.linearVelocity = moveDirection * moveSpeed * Time.fixedDeltaTime;
 
         #region Bounds
