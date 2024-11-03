@@ -29,9 +29,9 @@ Transform:
   m_GameObject: {fileID: 541182467245130642}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.125, y: -2.46, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1967859176446366216}
   - {fileID: 441066173377162688}
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayerID: -562134439
   m_SortingLayer: 2
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 355f9decc1bd0ca42ad03ce93d616f8c, type: 3}
+  m_Sprite: {fileID: 5234513959091571502, guid: f0962985c9ac0fa4db431a0fa7cacede, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   center: {fileID: 1967859176446366216}
   type: 3
-  defaultLocalPosition: {x: 0.125, y: 0.425, z: 0}
+  defaultLocalPosition: {x: 0.4, y: 0, z: 0}
   damage: 1
   fireRate: 1000
   canPenetrate: 1
@@ -150,8 +150,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.06, y: -0.48}
-  m_Size: {x: 1.09, y: 0.32}
+  m_Offset: {x: -0.03, y: -0.03}
+  m_Size: {x: 0.82, y: 0.42}
   m_Direction: 1
 --- !u!114 &4567630903667206223
 MonoBehaviour:
@@ -204,7 +204,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1992386833674702433}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -277,7 +277,7 @@ Transform:
   m_GameObject: {fileID: 6042857826477940012}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.358, z: 0}
+  m_LocalPosition: {x: 0.28, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

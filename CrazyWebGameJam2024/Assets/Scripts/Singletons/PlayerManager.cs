@@ -43,7 +43,7 @@ public class PlayerManager : MonoBehaviour
     {
         get
         {
-            if (currentlyEquippedWeapon == null)
+            if (currentlyEquippedWeapon == null && weaponAnchor.childCount > 0)
             {
                 currentlyEquippedWeapon = weaponAnchor.GetChild(0).GetComponent<Weapon>();
             }
