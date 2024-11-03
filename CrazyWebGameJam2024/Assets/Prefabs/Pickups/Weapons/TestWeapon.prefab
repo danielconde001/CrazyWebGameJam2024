@@ -10,6 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1601643827645773356}
   - component: {fileID: 1859789520452044731}
+  - component: {fileID: 3912977785883588122}
+  - component: {fileID: 243580833839374846}
+  - component: {fileID: 8360629644868446770}
   m_Layer: 7
   m_Name: TestWeapon
   m_TagString: Untagged
@@ -87,3 +90,76 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3912977785883588122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5134854816964740345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9b9981c6d23899499311e137d3034f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  center: {fileID: 0}
+  type: 0
+  defaultLocalPosition: {x: 0.125, y: 0.425, z: 0}
+  damage: 1
+  fireRate: 200
+  canPenetrate: 0
+  maxMagCapacity: 99
+  currentMagCapacity: 99
+  gunshotClip: {fileID: 8300000, guid: 3af557418f586a845a128f65393d3e56, type: 3}
+  emptyMagClip: {fileID: 8300000, guid: 24c22b6c7fd8df645914244c58bf5eba, type: 3}
+  bullet: {fileID: 8406151069148535810, guid: b9ab7c2927c2a1b40b232a71bbe3dfb7, type: 3}
+  muzzle: {fileID: 0}
+--- !u!70 &243580833839374846
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5134854816964740345}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.06, y: -0.48}
+  m_Size: {x: 1.09, y: 0.32}
+  m_Direction: 1
+--- !u!114 &8360629644868446770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5134854816964740345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e4005e8a68a4d343a31d4077ed9d3e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9b9981c6d23899499311e137d3034f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  center: {fileID: 0}
+  center: {fileID: 3761695099668459490}
   type: 1
   defaultLocalPosition: {x: 0.125, y: 0.425, z: 0}
   damage: 1
