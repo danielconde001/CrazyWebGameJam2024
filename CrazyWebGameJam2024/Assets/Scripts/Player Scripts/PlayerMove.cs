@@ -34,7 +34,7 @@ public class PlayerMove : PlayerControl
         moveDirection = Vector3.ClampMagnitude(moveDirection, 1);
 
         animator.SetFloat("Velocity", Vector3.ClampMagnitude(moveDirection, 1).magnitude);
-        spriteRenderer.flipX = moveX > 0f ? false : moveX < 0f ? true : spriteRenderer.flipX;
+        //spriteRenderer.flipX = moveX > 0f ? false : moveX < 0f ? true : spriteRenderer.flipX;
 
         //transform.position += (Vector3)moveDirection * moveSpeed * Time.deltaTime;
         selfRigidbody2D.linearVelocity = moveDirection * moveSpeed * Time.fixedDeltaTime;

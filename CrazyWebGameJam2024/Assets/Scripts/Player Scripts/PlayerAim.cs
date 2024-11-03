@@ -2,9 +2,16 @@ using UnityEngine;
 
 public class PlayerAim : PlayerControl
 {
+    [SerializeField] private SpriteRenderer weaponSpriteRenderer;
     [SerializeField] private bool useCrosshair = true;
+    private SpriteRenderer spriteRenderer;
     private Vector3 mousePos;
     private Vector2 aimDirection;
+
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     private void Update()
     {
@@ -20,6 +27,8 @@ public class PlayerAim : PlayerControl
 
         // Get the Normalized Vector between the Player's position and Mouse Position
         aimDirection = (mousePos - PlayerManager.Instance().CurrentlyEquippedWeapon.Center.position).normalized;
+        spriteRenderer.flipX = aimDirection.x > 0f ? false : aimDirection.x < 0f ? true : spriteRenderer.flipX;
+        weaponSpriteRenderer.flipY = aimDirection.x > 0f ? false : aimDirection.x < 0f ? true : weaponSpriteRenderer.flipY;
 
         // Get the angle of the aforementioned Vector
         float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
