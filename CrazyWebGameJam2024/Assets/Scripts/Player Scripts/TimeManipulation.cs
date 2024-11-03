@@ -24,6 +24,7 @@ public class TimeManipulation : PlayerControl
         {
             timeSlowTimer = timeSlowDuration;
             timeSlowTween = DOTween.To(()=> Time.timeScale, x=> Time.timeScale = x, slowTimeScale, timeSlowTransitionDuration).SetUpdate(UpdateType.Normal, true).SetEase(Ease.OutCirc);
+            HUDManager.Instance().UseVignette(true);
             isTimeSlowed = true;
         }
     }
@@ -33,6 +34,7 @@ public class TimeManipulation : PlayerControl
         if(isTimeSlowed == true)
         {
             timeSlowTween = DOTween.To(()=> Time.timeScale, x=> Time.timeScale = x, normalTimeScale, timeSlowTransitionDuration).SetUpdate(UpdateType.Normal, true).SetEase(Ease.InCirc);
+            HUDManager.Instance().UseVignette(false);
             isTimeSlowed = false;
         }
     }
