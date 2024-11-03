@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource), typeof(TimeManipulation))]
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private float minTimer;
@@ -10,6 +11,27 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private GameObject crosshair;
     [SerializeField] private bool spawnOnStart = true;
+    [SerializeField] private AudioSource audioSource;
+    private TimeManipulation timeManipulator;
+    
+    public AudioSource GetAudioSource()
+    {
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
+        
+        return audioSource;
+    }
+
+    public TimeManipulation TimeManipulator
+    {
+        get
+        { 
+            if (timeManipulator == null)
+                timeManipulator = GetComponent<TimeManipulation>();
+            
+            return timeManipulator; 
+        }
+    }
 
     private static GameManager instance;
     public static GameManager Instance()
@@ -25,6 +47,12 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
+        
+        if (timeManipulator == null)
+            timeManipulator = GetComponent<TimeManipulation>();
     }
 
     private void Start()

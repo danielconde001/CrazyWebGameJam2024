@@ -1,4 +1,4 @@
-using System;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -85,9 +85,45 @@ public class Weapon : MonoBehaviour
         get => currentMagCapacity;
     }
     
+    [SerializeField] private AudioClip gunshotClip;
+    public AudioClip GunshotClip
+    {
+        get => gunshotClip;
+    }
+    
+    [SerializeField] private AudioClip emptyMagClip;
+
+    public AudioClip EmptyMagClip
+    {
+        get => emptyMagClip;
+    }
+
+    [SerializeField] private GameObject bullet;
+    public GameObject Bullet
+    {
+        get => bullet;
+    }
+    
+    [SerializeField] private GameObject muzzle;
+    public GameObject Muzzle
+    {
+        get => muzzle;
+    }
+    
     public void Fire()
     {
+        if (PlayerManager.Instance().CurrentlyEquippedWeapon.CurrentMagCapacity <= 0)
+        {
+            GameManager.Instance().GetAudioSource().PlayOneShot(emptyMagClip, 0.1f);
+            return;
+        }
+        
         currentMagCapacity -= 1;
+        GameManager.Instance().GetAudioSource().PlayOneShot(gunshotClip, 0.1f);
+        ShowMuzzle();
+        GameManager.Instance().TimeManipulator.TimeHiccup();
+        SpawnBullet();
+        
     }
 
     public void Equip()
@@ -108,5 +144,29 @@ public class Weapon : MonoBehaviour
     private void EnableCollider()
     {
         GetCollider2D().enabled = true;
+    }
+    
+    private async void ShowMuzzle()
+    {
+        muzzle.SetActive(true);
+        await Task.Delay(100);
+        muzzle.SetActive(false);
+    }
+
+    private void SpawnBullet()
+    {
+        BulletBehaviour spawnedBullet
+            = Instantiate
+                (
+                    bullet,
+                    PlayerManager.Instance().GetPlayerAim().GetCenterTransform().position,
+                    Quaternion.identity
+                )
+                .GetComponent<BulletBehaviour>();
+        
+        Vector2 newBulletDir = PlayerManager.Instance().GetPlayerAim().GetAimDirection().normalized;
+        newBulletDir = Vector2.ClampMagnitude(newBulletDir, 1);
+
+        spawnedBullet.SetBulletDirection(newBulletDir);
     }
 }

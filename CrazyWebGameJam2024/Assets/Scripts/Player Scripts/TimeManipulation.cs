@@ -1,7 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 
-public class PlayerTimeManipulation : PlayerControl
+public class TimeManipulation : PlayerControl
 {
     [SerializeField] private float defaultTimeSlowDuration;
     [SerializeField] private float timeSlowTransitionDuration;

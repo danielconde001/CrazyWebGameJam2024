@@ -291,6 +291,10 @@ MonoBehaviour:
   canPenetrate: 0
   maxMagCapacity: 99
   currentMagCapacity: 99
+  gunshotClip: {fileID: 8300000, guid: 3af557418f586a845a128f65393d3e56, type: 3}
+  emptyMagClip: {fileID: 8300000, guid: 24c22b6c7fd8df645914244c58bf5eba, type: 3}
+  bullet: {fileID: 8406151069148535810, guid: b9ab7c2927c2a1b40b232a71bbe3dfb7, type: 3}
+  muzzle: {fileID: 985890698}
 --- !u!4 &458578972 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1601643827645773356, guid: 8a6d4b7fd4c49e44d88dc7395a0ff971, type: 3}
@@ -874,6 +878,63 @@ Transform:
   - {fileID: 605743051}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1145162122
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 464421514959808602, guid: fcb8db671a2749a419f4404d38231bf0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.03413129
+      objectReference: {fileID: 0}
+    - target: {fileID: 464421514959808602, guid: fcb8db671a2749a419f4404d38231bf0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.0221548
+      objectReference: {fileID: 0}
+    - target: {fileID: 464421514959808602, guid: fcb8db671a2749a419f4404d38231bf0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 464421514959808602, guid: fcb8db671a2749a419f4404d38231bf0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 464421514959808602, guid: fcb8db671a2749a419f4404d38231bf0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 464421514959808602, guid: fcb8db671a2749a419f4404d38231bf0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 464421514959808602, guid: fcb8db671a2749a419f4404d38231bf0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 464421514959808602, guid: fcb8db671a2749a419f4404d38231bf0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 464421514959808602, guid: fcb8db671a2749a419f4404d38231bf0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 464421514959808602, guid: fcb8db671a2749a419f4404d38231bf0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212653546680964552, guid: fcb8db671a2749a419f4404d38231bf0, type: 3}
+      propertyPath: m_Name
+      value: Caffeine Drink Pickup
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fcb8db671a2749a419f4404d38231bf0, type: 3}
 --- !u!1 &1155124343
 GameObject:
   m_ObjectHideFlags: 0
@@ -989,6 +1050,10 @@ MonoBehaviour:
   canPenetrate: 0
   maxMagCapacity: 99
   currentMagCapacity: 99
+  gunshotClip: {fileID: 8300000, guid: 3af557418f586a845a128f65393d3e56, type: 3}
+  emptyMagClip: {fileID: 8300000, guid: 24c22b6c7fd8df645914244c58bf5eba, type: 3}
+  bullet: {fileID: 8406151069148535810, guid: b9ab7c2927c2a1b40b232a71bbe3dfb7, type: 3}
+  muzzle: {fileID: 985890698}
 --- !u!1 &1509432120
 GameObject:
   m_ObjectHideFlags: 0
@@ -3896,6 +3961,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 515778993674704215, guid: 9bd8448d758ba9e4fa47fd763b50e84f, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2560631160395137968, guid: 9bd8448d758ba9e4fa47fd763b50e84f, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2560631160395137968, guid: 9bd8448d758ba9e4fa47fd763b50e84f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2560631160395137968, guid: 9bd8448d758ba9e4fa47fd763b50e84f, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -981305369
+      objectReference: {fileID: 0}
     - target: {fileID: 4276736552516690584, guid: 9bd8448d758ba9e4fa47fd763b50e84f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3935,6 +4016,26 @@ PrefabInstance:
     - target: {fileID: 4276736552516690584, guid: 9bd8448d758ba9e4fa47fd763b50e84f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4369333525737486971, guid: 9bd8448d758ba9e4fa47fd763b50e84f, type: 3}
+      propertyPath: slowTimeScale
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4369333525737486971, guid: 9bd8448d758ba9e4fa47fd763b50e84f, type: 3}
+      propertyPath: normalTimeScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4369333525737486971, guid: 9bd8448d758ba9e4fa47fd763b50e84f, type: 3}
+      propertyPath: defaultTimeSlowDuration
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4369333525737486971, guid: 9bd8448d758ba9e4fa47fd763b50e84f, type: 3}
+      propertyPath: timeSlowTransitionDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4369333525737486971, guid: 9bd8448d758ba9e4fa47fd763b50e84f, type: 3}
+      propertyPath: timeHiccupTransitionDuration
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7284468875689016703, guid: 9bd8448d758ba9e4fa47fd763b50e84f, type: 3}
       propertyPath: player
@@ -3988,11 +4089,16 @@ PrefabInstance:
       propertyPath: 'spawnPoints.Array.data[7]'
       value: 
       objectReference: {fileID: 605743051}
+    - target: {fileID: 7768053757640277823, guid: 9bd8448d758ba9e4fa47fd763b50e84f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8879854370198302515, guid: 9bd8448d758ba9e4fa47fd763b50e84f, type: 3}
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5266002926173189686, guid: 9bd8448d758ba9e4fa47fd763b50e84f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -4096,7 +4202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5168879333324308896, guid: 6bda3330440080c4596b1dc511ff5782, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6035472418410104623, guid: 6bda3330440080c4596b1dc511ff5782, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4178,7 +4284,8 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 261318084, guid: b9dd80071d2ce1140899df0d7a8b4a06, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 930647706513091918, guid: 6bda3330440080c4596b1dc511ff5782, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -4206,3 +4313,4 @@ SceneRoots:
   - {fileID: 1839532449}
   - {fileID: 949608762}
   - {fileID: 587964340}
+  - {fileID: 1145162122}

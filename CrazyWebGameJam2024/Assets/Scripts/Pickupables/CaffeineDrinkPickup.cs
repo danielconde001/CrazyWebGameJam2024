@@ -6,7 +6,7 @@ public class CaffeineDrinkPickup : Pickupable
     {
          if(collision.tag == "Player")
          {
-             collision.GetComponent<PlayerTimeManipulation>().SlowTime();
+             GameManager.Instance().TimeManipulator.SlowTime();
              Destroy(gameObject);
          }
     }

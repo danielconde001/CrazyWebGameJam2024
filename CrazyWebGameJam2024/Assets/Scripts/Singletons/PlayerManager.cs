@@ -52,6 +52,25 @@ public class PlayerManager : MonoBehaviour
         }
     }
     
+    [SerializeField] private PlayerAim playerAim;
+
+    public PlayerAim GetPlayerAim()
+    {
+        if (playerAim == null)
+            playerAim = player.GetComponent<PlayerAim>();
+        
+        return playerAim;
+    }
+
+    [SerializeField] private PlayerShoot playerShoot;
+    public PlayerShoot GetPlayerShoot()
+    {
+        if (playerShoot == null)
+            playerShoot = player.GetComponent<PlayerShoot>();
+        
+        return playerShoot;
+    }
+    
     public void ReplaceEquippedGunWith(Weapon pReplacementWeapon)
     {
         Vector3 dropPosition = pReplacementWeapon.transform.position;
@@ -79,5 +98,11 @@ public class PlayerManager : MonoBehaviour
         {
             player = GameObject.FindGameObjectWithTag("Player");
         }
+        
+        if (playerAim == null)
+            playerAim = player.GetComponent<PlayerAim>();
+        
+        if (playerShoot == null)
+            playerShoot = player.GetComponent<PlayerShoot>();
     }
 }
