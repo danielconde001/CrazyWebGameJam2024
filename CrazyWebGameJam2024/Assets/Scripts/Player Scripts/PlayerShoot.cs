@@ -16,7 +16,12 @@ public class PlayerShoot : PlayerControl
         if (!canControl)
             return;
 
-        if (Input.GetMouseButtonDown(0))
+        if (PlayerHasWeapon() == false)
+        {
+            return;
+        }
+        
+        else if (Input.GetMouseButton(0))
         {
             Shoot();
         }
@@ -24,11 +29,11 @@ public class PlayerShoot : PlayerControl
 
     private void Shoot()
     {
-        if (PlayerManager.Instance().CurrentlyEquippedWeapon == null)
-        {
-            return;
-        }
-        
         PlayerManager.Instance().CurrentlyEquippedWeapon.Fire();
+    }
+
+    private bool PlayerHasWeapon()
+    {
+        return PlayerManager.Instance().CurrentlyEquippedWeapon != null;
     }
 }
