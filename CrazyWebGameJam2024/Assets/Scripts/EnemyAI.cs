@@ -28,7 +28,8 @@ public class EnemyAI : MonoBehaviour
     [Header("Detection")]
     [SerializeField] private LayerMask detectionLayers;
     [SerializeField] private string playerTag;
-    [SerializeField] private float viewDistance;
+    [SerializeField] private float initialViewDistance;
+    [SerializeField] private float aggroViewDistance;
     [SerializeField] private float fieldOfVision;
     [SerializeField] private float turnSpeed;
     [SerializeField] private bool canDetect = true;
@@ -44,13 +45,14 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float chaseStopDelay;
     [SerializeField] private float searchDuration;
 
-    private Tween searchTween;
+    private Sequence searchSequence;
     private Transform rootTransform;
     private Transform playerTransform; 
     private Vector3 lastPlayerPosition;
     private Vector3 randomWanderPos;
     private float timer = 0.0f;
     private bool isAIStopped = false;
+    private bool isPlayerSpotted = false;
 
     private EnemyState currentEnemyState;
     public EnemyState CurrentEnemyState
@@ -85,9 +87,9 @@ public class EnemyAI : MonoBehaviour
                 }
                 case EnemyState.SEARCH:
                 {
-                    if(searchTween != null)
+                    if(searchSequence != null)
                     {
-                        searchTween.Kill();
+                        searchSequence.Kill();
                     }
                     break;
                 }
@@ -101,11 +103,13 @@ public class EnemyAI : MonoBehaviour
                     navMeshAgent.speed = wanderSpeed;
                     navMeshAgent.SetDestination(randomWanderPos);
                     timer = Random.Range(minWanderDelay, maxWanderDelay);
+                    isPlayerSpotted = false;
                     break;
                 }
                 case EnemyState.ATTACK:
                 {
                     navMeshAgent.ResetPath();
+                    isPlayerSpotted = true;
                     break;
                 }
                 case EnemyState.CHASE:
@@ -118,13 +122,17 @@ public class EnemyAI : MonoBehaviour
                 }
                 case EnemyState.SEARCH:
                 {
-                    if(searchTween != null)
+                    if(searchSequence != null)
                     {
-                        searchTween.Kill();
+                        searchSequence.Kill();
                     }
-
-                    Vector3 newRot = new Vector3(headPivot.localRotation.eulerAngles.x + 180.0f, headPivot.localRotation.eulerAngles.y, headPivot.localRotation.eulerAngles.z);
-                    searchTween = headPivot.DOLocalRotate(newRot, searchDuration / 2.0f, RotateMode.Fast);
+                    
+                    searchSequence = DOTween.Sequence();
+                    Vector3 newLeftRot = new Vector3(headPivot.localRotation.eulerAngles.x - Random.Range(20.0f, 60.0f), headPivot.localRotation.eulerAngles.y, headPivot.localRotation.eulerAngles.z);
+                    Vector3 newRightRot = new Vector3(headPivot.localRotation.eulerAngles.x + Random.Range(20.0f, 60.0f), headPivot.localRotation.eulerAngles.y, headPivot.localRotation.eulerAngles.z);
+                    searchSequence.Append(headPivot.DOLocalRotate(newLeftRot, searchDuration / 2.0f, RotateMode.Fast));
+                    searchSequence.Append(headPivot.DOLocalRotate(newRightRot, searchDuration / 2.0f, RotateMode.Fast));
+                    searchSequence.Play();
                     timer = searchDuration;
                     break;
                 }
@@ -241,7 +249,7 @@ public class EnemyAI : MonoBehaviour
                 Quaternion rot = Quaternion.LookRotation((playerTransform.position - headPivot.position).normalized, Vector3.back);
                 headPivot.rotation = Quaternion.RotateTowards(headPivot.rotation, rot, turnSpeed * Time.deltaTime);
                 
-                RaycastHit2D raycastHit2D = Physics2D.Raycast(headPivot.position, headPivot.forward, viewDistance, detectionLayers);
+                RaycastHit2D raycastHit2D = Physics2D.Raycast(headPivot.position, headPivot.forward, aggroViewDistance, detectionLayers);
                 if(raycastHit2D.collider != null)
                 {
                     if(raycastHit2D.collider.gameObject.tag == playerTag)
@@ -286,12 +294,12 @@ public class EnemyAI : MonoBehaviour
 
     private void DetectionChecker()
     {
-        if(Vector3.Distance(basePivot.position, playerTransform.position) < viewDistance)
+        if(Vector3.Distance(basePivot.position, playerTransform.position) < (isPlayerSpotted == false ? initialViewDistance : aggroViewDistance))
         {
             Vector3 playerDirection = (playerTransform.position - basePivot.position).normalized;
             if(Vector3.Angle(headPivot.forward, playerDirection) < (fieldOfVision / 2.0f))
             {
-                RaycastHit2D raycastHit2D = Physics2D.Raycast(headPivot.position, playerDirection, viewDistance, detectionLayers);
+                RaycastHit2D raycastHit2D = Physics2D.Raycast(headPivot.position, playerDirection, (isPlayerSpotted == false ? initialViewDistance : aggroViewDistance), detectionLayers);
                 if(raycastHit2D.collider != null)
                 {
                     if(raycastHit2D.collider.gameObject.tag == playerTag)
