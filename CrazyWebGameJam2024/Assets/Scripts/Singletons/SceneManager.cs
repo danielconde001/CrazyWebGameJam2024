@@ -7,8 +7,8 @@ public class SceneManager : MonoBehaviour
     {
         if (instance == null)
         {
-            GameObject sceneManager = new GameObject("SceneManager");
-            instance = sceneManager.AddComponent<SceneManager>();
+            GameObject sceneManager = Instantiate(Resources.Load("Prefabs/Singletons/MusicManager", typeof(GameObject)) as GameObject);
+            instance = sceneManager.GetComponent<SceneManager>();
         }
         return instance;
     }
