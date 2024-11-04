@@ -171,7 +171,7 @@ public class EnemyAI : MonoBehaviour
 
         if(isAIStopped == false)
         {
-            selfAnimator.SetFloat("Velocity", navMeshAgent.velocity.magnitude);
+            //selfAnimator.SetFloat("Velocity", navMeshAgent.velocity.magnitude);
             selfSpriteRenderer.flipX = navMeshAgent.velocity.x > 0f ? false : navMeshAgent.velocity.x < 0f ? true : selfSpriteRenderer.flipX;
 
             UpdateStateChecker();

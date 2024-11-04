@@ -4128,6 +4128,10 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1683662729814260658, guid: 6bda3330440080c4596b1dc511ff5782, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 8406151069148535810, guid: 43394ac9173ee00408311d01b4298b10, type: 3}
+    - target: {fileID: 1683662729814260658, guid: 6bda3330440080c4596b1dc511ff5782, type: 3}
       propertyPath: center
       value: 
       objectReference: {fileID: 923231230}
@@ -4291,6 +4295,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7373106746225740113, guid: 6bda3330440080c4596b1dc511ff5782, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7487701542135079406, guid: 6bda3330440080c4596b1dc511ff5782, type: 3}
       propertyPath: m_BodyType
       value: 0
@@ -4327,7 +4335,10 @@ PrefabInstance:
     - {fileID: 930647706513091918, guid: 6bda3330440080c4596b1dc511ff5782, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6564502902507334747, guid: 6bda3330440080c4596b1dc511ff5782, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 6665394446656378325}
   m_SourcePrefab: {fileID: 100100000, guid: 6bda3330440080c4596b1dc511ff5782, type: 3}
 --- !u!4 &6665394446656378310 stripped
 Transform:
@@ -4367,6 +4378,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72dd6e0ef0dabba4da3f6f096827407f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!70 &6665394446656378325
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405496839}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 192
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0.5}
+  m_Size: {x: 0.5, y: 1.5}
+  m_Direction: 0
 --- !u!50 &6706183743056060951
 Rigidbody2D:
   serializedVersion: 5
@@ -4547,7 +4595,7 @@ MonoBehaviour:
   currentMagCapacity: 99
   gunshotClip: {fileID: 8300000, guid: 3af557418f586a845a128f65393d3e56, type: 3}
   emptyMagClip: {fileID: 8300000, guid: 24c22b6c7fd8df645914244c58bf5eba, type: 3}
-  bullet: {fileID: 8406151069148535810, guid: 9e26920a9de9b9746910dd36aa3367e2, type: 3}
+  bullet: {fileID: 8406151069148535810, guid: cd422ffa4a6f2f947a058d790dd6e580, type: 3}
   muzzle: {fileID: 1046457721}
 --- !u!95 &8467394084389820011
 Animator:
