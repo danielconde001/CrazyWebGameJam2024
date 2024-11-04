@@ -103,7 +103,7 @@ public class Weapon : MonoBehaviour
     
     protected bool canFire = true;
     
-    public async void Fire()
+    public async virtual void Fire()
     {
         if (canFire == false)
             return;

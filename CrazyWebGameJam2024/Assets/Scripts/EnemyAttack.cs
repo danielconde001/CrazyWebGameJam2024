@@ -3,11 +3,11 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class EnemyAttack : MonoBehaviour
 {
-    private EnemyAI enemyAI;
+    private EnemyAI_OLD enemyAI;
 
     private void Awake()
     {
-        enemyAI = GetComponent<EnemyAI>();
+        enemyAI = GetComponent<EnemyAI_OLD>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
