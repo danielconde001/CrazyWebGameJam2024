@@ -230,10 +230,12 @@ MonoBehaviour:
   canPenetrate: 0
   maxMagCapacity: 8
   currentMagCapacity: 8
+  cameraShakeForce: 0.2
   gunshotClip: {fileID: 8300000, guid: b078305d4980b1141b83f22a83f91a37, type: 3}
   emptyMagClip: {fileID: 8300000, guid: 24c22b6c7fd8df645914244c58bf5eba, type: 3}
   bullet: {fileID: 8406151069148535810, guid: 43394ac9173ee00408311d01b4298b10, type: 3}
   muzzle: {fileID: 2435994562656878034}
+  spriteRenderer: {fileID: 0}
   spread: 0.4
   pelletsPerShot: 8
 --- !u!70 &307315192225293138

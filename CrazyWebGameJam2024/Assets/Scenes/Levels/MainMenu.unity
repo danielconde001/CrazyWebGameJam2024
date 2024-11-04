@@ -948,10 +948,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9039084346048646888, guid: e83a802670709884292b5159307c2779, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1065,8 +1061,8 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1209783296}
         m_TargetAssemblyTypeName: MusicManager, Assembly-CSharp
-        m_MethodName: PlayMusic
-        m_Mode: 3
+        m_MethodName: PlayRandomBGM
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

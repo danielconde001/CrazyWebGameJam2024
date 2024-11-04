@@ -79,6 +79,12 @@ public class Weapon : MonoBehaviour
         get => currentMagCapacity;
     }
     
+    [SerializeField] protected float cameraShakeForce = 1f;
+    public float CameraShakeForce
+    {
+        get => cameraShakeForce;
+    }
+    
     [SerializeField] protected AudioClip gunshotClip;
     public AudioClip GunshotClip
     {
@@ -115,7 +121,9 @@ public class Weapon : MonoBehaviour
     public async virtual void Fire()
     {
         if (canFire == false)
+        {
             return;
+        }
 
         canFire = false;
         
@@ -129,6 +137,7 @@ public class Weapon : MonoBehaviour
             GameManager.Instance().GetAudioSource().PlayOneShot(gunshotClip, 0.5f);
             ShowMuzzle();
             GameManager.Instance().TimeManipulator.TimeHiccup();
+            ShakeCamera();
             SpawnBullets();
         }
         
@@ -161,6 +170,11 @@ public class Weapon : MonoBehaviour
         muzzle.SetActive(true);
         await Task.Delay(100);
         muzzle.SetActive(false);
+    }
+
+    protected void ShakeCamera()
+    {
+        CameraShake.Instance().ShakeCamera(1,cameraShakeForce);
     }
 
     protected virtual void SpawnBullets()

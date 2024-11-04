@@ -31,4 +31,11 @@ public class MusicManager : MonoBehaviour
         source.clip = _audioClips[pIndex];
         source.Play();
     }
+
+    public void PlayRandomBGM()
+    {
+        int index = Random.Range(1, _audioClips.Length);
+        source.clip = _audioClips[index];
+        source.Play();
+    }
 }
