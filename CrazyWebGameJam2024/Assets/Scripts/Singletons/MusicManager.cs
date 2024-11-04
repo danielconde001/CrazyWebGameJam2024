@@ -8,8 +8,8 @@ public class MusicManager : MonoBehaviour
     {
         if (instance == null)
         {
-            GameObject musicManager = new GameObject("MusicManager");
-            instance = musicManager.AddComponent<MusicManager>();
+            GameObject musicManager = Instantiate(Resources.Load("Prefabs/Singletons/MusicManager", typeof(GameObject)) as GameObject);
+            instance = musicManager.GetComponent<MusicManager>();
         }
         return instance;
     }

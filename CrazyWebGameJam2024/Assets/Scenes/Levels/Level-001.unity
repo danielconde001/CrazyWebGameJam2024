@@ -2771,15 +2771,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4189350456412324579, guid: ef775a0a6a2728f458d6bca35bc2025f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.758972
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4189350456412324579, guid: ef775a0a6a2728f458d6bca35bc2025f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.8743966
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4189350456412324579, guid: ef775a0a6a2728f458d6bca35bc2025f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.053982753
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4189350456412324579, guid: ef775a0a6a2728f458d6bca35bc2025f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4546,6 +4546,7 @@ MonoBehaviour:
   emptyMagClip: {fileID: 8300000, guid: 24c22b6c7fd8df645914244c58bf5eba, type: 3}
   bullet: {fileID: 8406151069148535810, guid: cd422ffa4a6f2f947a058d790dd6e580, type: 3}
   muzzle: {fileID: 1046457721}
+  spriteRenderer: {fileID: 0}
 --- !u!95 &8467394084389820011
 Animator:
   serializedVersion: 7

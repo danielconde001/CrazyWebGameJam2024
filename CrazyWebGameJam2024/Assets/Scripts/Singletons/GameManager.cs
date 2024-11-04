@@ -38,8 +38,8 @@ public class GameManager : MonoBehaviour
     {
         if (instance == null)
         {
-            GameObject gameManager = new GameObject("GameManager");
-            instance = gameManager.AddComponent<GameManager>();
+            GameObject gameManager = Instantiate(Resources.Load("Prefabs/Singletons/GameManager", typeof(GameObject)) as GameObject);
+            instance = gameManager.GetComponent<GameManager>();
         }
         return instance;
     }

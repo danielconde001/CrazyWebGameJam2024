@@ -1,4 +1,3 @@
-using UnityEngine.UI;
 using UnityEngine;
 using DG.Tweening;
 
@@ -9,8 +8,8 @@ public class HUDManager : MonoBehaviour
     {
         if (instance == null)
         {
-            GameObject playerManager = new GameObject("HUDManager");
-            instance = playerManager.AddComponent<HUDManager>();
+            GameObject hudManager = Instantiate(Resources.Load("Prefabs/Singletons/HUDManager", typeof(GameObject)) as GameObject);
+            instance = hudManager.GetComponent<HUDManager>();
         }
         return instance;
     }
@@ -18,19 +17,21 @@ public class HUDManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        mainCanvas = mainCanvasGameObject.GetComponent<MainCanvas>();
     }
 
-    [SerializeField] private Image vignetteOverlay;
-
+    [SerializeField] private GameObject mainCanvasGameObject;
+    private MainCanvas mainCanvas;
+    
     public void UseVignette(bool pUseVignette)
     {
         if (pUseVignette)
         {
-            vignetteOverlay.DOFade(1f, 1f);
+            mainCanvas.Vignette.DOFade(1f, 1f);
         }
         else
         {
-            vignetteOverlay.DOFade(0f, 1f);
+            mainCanvas.Vignette.DOFade(0f, 1f);
         }
     }
 }
