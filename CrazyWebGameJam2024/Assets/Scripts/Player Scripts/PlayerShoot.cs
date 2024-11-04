@@ -34,6 +34,8 @@ public class PlayerShoot : PlayerControl
 
     private bool PlayerHasWeapon()
     {
+        if (PlayerManager.Instance() == null) return false;
+        
         return PlayerManager.Instance().CurrentlyEquippedWeapon != null;
     }
 }

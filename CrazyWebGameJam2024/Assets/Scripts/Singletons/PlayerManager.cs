@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
@@ -31,7 +32,7 @@ public class PlayerManager : MonoBehaviour
         {
             if (weaponAnchor == null)
             {
-                weaponAnchor = player.transform.GetChild(0);
+                weaponAnchor = player.transform.Find("weapon_anchor");
             }
             
             return weaponAnchor;
@@ -43,9 +44,9 @@ public class PlayerManager : MonoBehaviour
     {
         get
         {
-            if (currentlyEquippedWeapon == null && weaponAnchor.childCount > 0)
+            if (currentlyEquippedWeapon == null)
             {
-                currentlyEquippedWeapon = weaponAnchor.GetChild(0).GetComponent<Weapon>();
+                currentlyEquippedWeapon = player.GetComponentInChildren<Weapon>();
             }
             
             return currentlyEquippedWeapon;
@@ -93,16 +94,28 @@ public class PlayerManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-
+        
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player");
         }
-        
+
         if (playerAim == null)
+        {
             playerAim = player.GetComponent<PlayerAim>();
-        
+        }
+
         if (playerShoot == null)
+        {
             playerShoot = player.GetComponent<PlayerShoot>();
+        }
+    }
+
+    private void Start()
+    {
+        if (weaponAnchor == null)
+        {
+            weaponAnchor = player.transform.Find("weapon_anchor");
+        }
     }
 }
