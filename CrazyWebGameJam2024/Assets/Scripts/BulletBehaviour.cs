@@ -3,6 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class BulletBehaviour : MonoBehaviour
 {
+    [SerializeField] private string enemyTag;
     [SerializeField] private float bulletSpeed;
     private Vector2 bulletDirection = Vector2.right;
     private Rigidbody2D selfRigidbody2D;
@@ -30,12 +31,12 @@ public class BulletBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy")
+        if (collision.tag == enemyTag)
         {
             collision.GetComponent<Health>().DeductHealth(1);
             Destroy(gameObject);
         }
-        
+
         else if(collision.tag == "Obstacle")
         {
             Destroy(gameObject);

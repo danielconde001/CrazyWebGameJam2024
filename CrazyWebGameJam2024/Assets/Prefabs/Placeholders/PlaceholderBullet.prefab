@@ -13,8 +13,13 @@ GameObject:
   - component: {fileID: 3930611517891757717}
   - component: {fileID: 567021023834357464}
   - component: {fileID: -4383218767623859932}
+<<<<<<<< HEAD:CrazyWebGameJam2024/Assets/Prefabs/Placeholders/PlaceholderBullet.prefab
   m_Layer: 7
   m_Name: PlaceholderBullet
+========
+  m_Layer: 8
+  m_Name: Enemy Bullet
+>>>>>>>> dev-gino:CrazyWebGameJam2024/Assets/Prefabs/Enemy Bullet.prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -165,4 +170,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f14280efb873b3459594565102c97f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 500
+  enemyTag: Player
+  bulletSpeed: 250
