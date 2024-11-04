@@ -9,18 +9,9 @@ public class EnemyWeapon : Weapon
             return;
 
         canFire = false;
-        
-        if (PlayerManager.Instance().CurrentlyEquippedWeapon.CurrentMagCapacity <= 0)
-        {
-            GameManager.Instance().GetAudioSource().PlayOneShot(emptyMagClip, 1f);
-        }
-        else
-        {
-            currentMagCapacity -= 1;
-            GameManager.Instance().GetAudioSource().PlayOneShot(gunshotClip, 0.1f);
-            ShowMuzzle();
-            SpawnBullets();
-        }
+
+        ShowMuzzle();
+        SpawnBullets();
         
         await Task.Delay(fireRate);
         canFire = true;

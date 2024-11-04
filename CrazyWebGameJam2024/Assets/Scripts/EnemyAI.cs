@@ -130,8 +130,8 @@ public class EnemyAI : MonoBehaviour
                     searchSequence = DOTween.Sequence();
                     Vector3 newLeftRot = new Vector3(headPivot.localRotation.eulerAngles.x - Random.Range(20.0f, 60.0f), headPivot.localRotation.eulerAngles.y, headPivot.localRotation.eulerAngles.z);
                     Vector3 newRightRot = new Vector3(headPivot.localRotation.eulerAngles.x + Random.Range(20.0f, 60.0f), headPivot.localRotation.eulerAngles.y, headPivot.localRotation.eulerAngles.z);
-                    searchSequence.Append(headPivot.DOLocalRotate(newLeftRot, searchDuration / 2.0f, RotateMode.Fast));
-                    searchSequence.Append(headPivot.DOLocalRotate(newRightRot, searchDuration / 2.0f, RotateMode.Fast));
+                    searchSequence.Append(headPivot.DOLocalRotate(newLeftRot, searchDuration / 2.0f, RotateMode.FastBeyond360));
+                    searchSequence.Append(headPivot.DOLocalRotate(newRightRot, searchDuration / 2.0f, RotateMode.FastBeyond360));
                     searchSequence.Play();
                     timer = searchDuration;
                     break;
