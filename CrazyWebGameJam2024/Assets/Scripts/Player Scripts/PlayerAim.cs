@@ -23,6 +23,8 @@ public class PlayerAim : PlayerControl
 
         // Get the angle of the aforementioned Vector
         float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
+        if (PlayerManager.Instance().CurrentlyEquippedWeapon != null)
+            PlayerManager.Instance().CurrentlyEquippedWeapon.GetSpriteRenderer().flipY = aimDirection.x < 0;
         
         // Set Weapon Anchor's z rotation equal to the angle
         PlayerManager.Instance().WeaponAnchor.transform.localEulerAngles = new Vector3(0, 0, angle);

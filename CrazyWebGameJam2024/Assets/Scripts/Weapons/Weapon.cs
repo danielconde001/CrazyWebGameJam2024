@@ -20,6 +20,9 @@ public class Weapon : MonoBehaviour
         {
             center = transform.Find("Center");
         }
+        
+        if (spriteRenderer == null)
+            spriteRenderer = GetComponent<SpriteRenderer>();
     }
     
     protected Collider2D weaponCollider = new Collider2D();
@@ -99,6 +102,12 @@ public class Weapon : MonoBehaviour
     public GameObject Muzzle
     {
         get => muzzle;
+    }
+    
+    [SerializeField] protected SpriteRenderer spriteRenderer;
+    public SpriteRenderer GetSpriteRenderer()
+    {
+        return spriteRenderer;
     }
     
     protected bool canFire = true;
