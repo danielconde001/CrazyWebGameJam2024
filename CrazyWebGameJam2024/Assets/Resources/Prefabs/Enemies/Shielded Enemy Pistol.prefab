@@ -340,15 +340,19 @@ MonoBehaviour:
   aggroFieldOfVision: 270
   turnSpeed: 500
   canDetect: 1
-  minMoveDistance: 0.1
-  wanderSpeed: 2
+  startingEnemyState: 0
+  minMoveDistance: 1
+  minPatrolDistance: 0.5
+  initialSpeed: 2
   minWanderDistance: -5
   maxWanderDistance: 5
   minWanderDelay: 1
   maxWanderDelay: 3
-  chaseSpeed: 3
+  firstAttackDelay: 0
+  chaseSpeed: 4
   chaseStopDelay: 1.5
   searchDuration: 3
+  patrolPoints: []
 --- !u!195 &1671357284816171665
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -358,7 +362,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 4597920712449731883}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.25
+  m_Radius: 0.1
   m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50

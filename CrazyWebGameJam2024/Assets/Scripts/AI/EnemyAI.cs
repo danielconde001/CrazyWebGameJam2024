@@ -10,7 +10,10 @@ public enum EnemyState
     WANDER,
     ATTACK,
     CHASE,
-    SEARCH
+    SEARCH,
+    PATROL,
+    TURRET,
+    STATIONARY
 }
 
 public class EnemyAI : MonoBehaviour
@@ -34,21 +37,27 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] protected bool canDetect = true;
 
     [Header("State")]
+    [SerializeField] protected EnemyState startingEnemyState;
     [SerializeField] protected float minMoveDistance;
-    [SerializeField] protected float wanderSpeed;
+    [SerializeField] protected float minPatrolDistance;
+    [SerializeField] protected float initialSpeed;
     [SerializeField] protected float minWanderDistance;
     [SerializeField] protected float maxWanderDistance;
     [SerializeField] protected float minWanderDelay;
     [SerializeField] protected float maxWanderDelay;
+    [SerializeField] protected float firstAttackDelay;
     [SerializeField] protected float chaseSpeed;
     [SerializeField] protected float chaseStopDelay;
     [SerializeField] protected float searchDuration;
+    [SerializeField] protected List<Transform> patrolPoints;
 
     protected Sequence searchSequence;
     protected Transform rootTransform;
     protected Transform playerTransform; 
     protected Vector3 lastPlayerPosition;
     protected Vector3 randomWanderPos;
+    protected Vector3 initialPosition;
+    protected int currentPatrolPoint = 0;
     protected float timer = 0.0f;
     protected bool isAIStopped = false;
     protected bool isPlayerSpotted = false;
@@ -58,14 +67,8 @@ public class EnemyAI : MonoBehaviour
     {
         get {return currentEnemyState;}
         set
-        {
-            if(value == currentEnemyState)
-            {
-                //return;
-            }
-            
+        {            
             EnemyState oldEnemyState = currentEnemyState;
-            currentEnemyState = value;
 
             switch(oldEnemyState)
             {
@@ -90,34 +93,56 @@ public class EnemyAI : MonoBehaviour
                     {
                         searchSequence.Kill();
                     }
+
+                    break;
+                }
+                case EnemyState.PATROL:
+                {
+
+                    break;
+                }
+                case EnemyState.TURRET:
+                {
+                    
+                    break;
+                }
+                case EnemyState.STATIONARY:
+                {
+
                     break;
                 }
             }
+
+            currentEnemyState = value;
 
             switch(currentEnemyState)
             {
                 case EnemyState.WANDER:
                 {
                     randomWanderPos = GetRandomPosition();
-                    navMeshAgent.speed = wanderSpeed;
+                    navMeshAgent.speed = initialSpeed;
                     navMeshAgent.SetDestination(randomWanderPos);
                     timer = Random.Range(minWanderDelay, maxWanderDelay);
                     isPlayerSpotted = false;
+
                     break;
                 }
                 case EnemyState.ATTACK:
                 {
                     EventsManager.Instance().PlayerSpotted();
                     navMeshAgent.ResetPath();
+                    timer = firstAttackDelay;
                     isPlayerSpotted = true;
+
                     break;
                 }
                 case EnemyState.CHASE:
                 {
-                    lastPlayerPosition = playerTransform.position;
+                    lastPlayerPosition = RandomizePosition(playerTransform.position, 0.5f);
                     navMeshAgent.speed = chaseSpeed;
                     navMeshAgent.SetDestination(lastPlayerPosition);
                     timer = chaseStopDelay;
+
                     break;
                 }
                 case EnemyState.SEARCH:
@@ -134,6 +159,29 @@ public class EnemyAI : MonoBehaviour
                     searchSequence.Append(headPivot.DOLocalRotate(newRightRot, searchDuration / 2.0f, RotateMode.FastBeyond360));
                     searchSequence.Play();
                     timer = searchDuration;
+
+                    break;
+                }
+                case EnemyState.PATROL:
+                {
+                    navMeshAgent.speed = initialSpeed;
+                    currentPatrolPoint = 0;
+                    isPlayerSpotted = false;
+
+                    break;
+                }
+                case EnemyState.TURRET:
+                {
+                    isPlayerSpotted = false;
+                    
+                    break;
+                }
+                case EnemyState.STATIONARY:
+                {
+                    navMeshAgent.speed = initialSpeed;
+                    navMeshAgent.SetDestination(initialPosition);
+                    isPlayerSpotted = false;
+
                     break;
                 }
             }
@@ -144,7 +192,16 @@ public class EnemyAI : MonoBehaviour
     {
         canDetect = false;
 
-        CurrentEnemyState = EnemyState.CHASE;
+        if(startingEnemyState != EnemyState.PATROL
+        && startingEnemyState != EnemyState.TURRET
+        && startingEnemyState != EnemyState.STATIONARY)
+        {
+            CurrentEnemyState = EnemyState.CHASE;
+        }
+        else
+        {
+            CurrentEnemyState = startingEnemyState;
+        }
     }
 
     public void StopAI()
@@ -157,20 +214,29 @@ public class EnemyAI : MonoBehaviour
         selfCapsuleCollider.enabled = false;
         isAIStopped = true;
         navMeshAgent.isStopped = true;
+        CurrentEnemyState = EnemyState.NULL;
     }
 
     public void PlayerAlert()
     {
-        if(CurrentEnemyState != EnemyState.ATTACK)
+        if(startingEnemyState != EnemyState.TURRET)
         {
-            CurrentEnemyState = EnemyState.CHASE;
+            if(CurrentEnemyState != EnemyState.ATTACK)
+            {
+                CurrentEnemyState = EnemyState.CHASE;
+            }
+        }
+        else
+        {
+            StartCoroutine(LookAtPosition(playerTransform.position));
         }
     }
 
     protected virtual void Awake()
     {
         rootTransform = transform;
-        CurrentEnemyState = EnemyState.WANDER;
+        initialPosition = basePivot.position;
+        CurrentEnemyState = startingEnemyState;
     }
 
     protected void Start()
@@ -190,8 +256,7 @@ public class EnemyAI : MonoBehaviour
 
         if(isAIStopped == false)
         {
-            //THIS IS USING PLAYER ANIMATOR MAYBE CHANGE THESE
-            if(navMeshAgent.velocity.normalized.y != 0 || navMeshAgent.velocity.normalized.x != 0)
+            if((navMeshAgent.velocity.normalized.y != 0 || navMeshAgent.velocity.normalized.x != 0) && navMeshAgent.hasPath == true)
             {
                 selfAnimator.SetBool("isMoving", true);
                 selfAnimator.SetFloat("MoveX", navMeshAgent.velocity.normalized.x);
@@ -246,6 +311,33 @@ public class EnemyAI : MonoBehaviour
         return GetRandomPosition();
     }
 
+    protected Vector3 RandomizePosition(Vector3 position, float randomness)
+    {
+        Vector3 randomPos = new Vector3(position.x + Random.Range(-randomness, randomness),
+                                        position.y + Random.Range(-randomness, randomness),
+                                        position.z);
+
+        NavMeshPath path = new NavMeshPath();
+
+        if(navMeshAgent.CalculatePath(randomPos, path))
+        {
+            if(path.status == NavMeshPathStatus.PathInvalid || path.status == NavMeshPathStatus.PathPartial)
+            {
+                return RandomizePosition(position, randomness);
+            }
+            else if(path.status == NavMeshPathStatus.PathComplete)
+            {
+                return randomPos;
+            }
+        }
+        else
+        {
+            return RandomizePosition(position, randomness);
+        }
+
+        return RandomizePosition(position, randomness);
+    }
+
     protected void UpdateStateChecker()
     {
         switch(currentEnemyState)
@@ -264,32 +356,40 @@ public class EnemyAI : MonoBehaviour
                         navMeshAgent.ResetPath();
                     }
             
-                    if(timer > 0.0f)
+                    if(timer >= 0.0f)
                     {
                         timer -= Time.deltaTime;
                         if(timer <= 0.0f)
                         {
                             randomWanderPos = GetRandomPosition();
-                            navMeshAgent.speed = wanderSpeed;
+                            navMeshAgent.speed = initialSpeed;
                             navMeshAgent.SetDestination(randomWanderPos);
                             timer = Random.Range(minWanderDelay, maxWanderDelay);
                         }
                     }
                 }
+
                 break;
             }
             case EnemyState.ATTACK:
             {
-                Vector3 playerPosOffset = new Vector3(playerTransform.position.x, playerTransform.position.y + headPivot.localPosition.y, playerTransform.position.z);
-                Quaternion rot = Quaternion.LookRotation((playerPosOffset - headPivot.position).normalized, Vector3.back);
-                headPivot.rotation = Quaternion.RotateTowards(headPivot.rotation, rot, turnSpeed * Time.deltaTime);
-                
-                RaycastHit2D raycastHit2D = Physics2D.Raycast(headPivot.position, headPivot.forward, aggroViewDistance, detectionLayers);
-                if(raycastHit2D.collider != null)
+                if(timer >= 0.0f)
                 {
-                    if(raycastHit2D.collider.gameObject.tag == playerTag)
+                    timer -= Time.deltaTime;
+                    if(timer <= 0.0f)
                     {
-                        selfWeapon.Fire();
+                        Vector3 playerPosOffset = new Vector3(playerTransform.position.x, playerTransform.position.y + headPivot.localPosition.y, playerTransform.position.z);
+                        Quaternion rot = Quaternion.LookRotation((playerPosOffset - headPivot.position).normalized, Vector3.back);
+                        headPivot.rotation = Quaternion.RotateTowards(headPivot.rotation, rot, turnSpeed * Time.deltaTime);
+                        
+                        RaycastHit2D raycastHit2D = Physics2D.Raycast(headPivot.position, headPivot.forward, aggroViewDistance, detectionLayers);
+                        if(raycastHit2D.collider != null)
+                        {
+                            if(raycastHit2D.collider.gameObject.tag == playerTag)
+                            {
+                                selfWeapon.Fire();
+                            }
+                        }
                     }
                 }
 
@@ -309,7 +409,7 @@ public class EnemyAI : MonoBehaviour
                         navMeshAgent.ResetPath();
                     }
 
-                    if(timer > 0.0f)
+                    if(timer >= 0.0f)
                     {
                         timer -= Time.deltaTime;
                         if(timer <= 0.0f)
@@ -319,19 +419,75 @@ public class EnemyAI : MonoBehaviour
                         }
                     }
                 }
+
                 break;
             }
             case EnemyState.SEARCH:
             {
-                if(timer > 0.0f)
+                if(timer >= 0.0f)
                 {
                     timer -= Time.deltaTime;
                     if(timer <= 0.0f)
                     {
                         timer = 0.0f;
-                        CurrentEnemyState = EnemyState.WANDER;
+
+                        CurrentEnemyState = startingEnemyState;
                     }
                 }
+
+                break;
+            }
+            case EnemyState.PATROL:
+            {
+                if(navMeshAgent.hasPath == false)
+                {
+                    navMeshAgent.SetDestination(patrolPoints[currentPatrolPoint].position);
+                }
+                else
+                {
+                    if(navMeshAgent.remainingDistance > minPatrolDistance && navMeshAgent.velocity.magnitude != 0.0f)
+                    {
+                        Quaternion rot = Quaternion.LookRotation(navMeshAgent.velocity.normalized, Vector3.back);
+                        headPivot.rotation = Quaternion.RotateTowards(headPivot.rotation, rot, turnSpeed * Time.deltaTime);
+                    }
+                    else if(navMeshAgent.remainingDistance <= minPatrolDistance)
+                    {
+                        if(navMeshAgent.hasPath == true)
+                        {
+                            currentPatrolPoint++;
+
+                            if(currentPatrolPoint >= patrolPoints.Count)
+                            {
+                                currentPatrolPoint = 0;
+                            }
+
+                            navMeshAgent.ResetPath();
+                        }
+                    }
+                }
+
+                break;
+            }
+            case EnemyState.TURRET:
+            {
+                    
+                break;
+            }
+            case EnemyState.STATIONARY:
+            {
+                if(navMeshAgent.remainingDistance > minMoveDistance && navMeshAgent.velocity.magnitude != 0.0f)
+                {
+                    Quaternion rot = Quaternion.LookRotation(navMeshAgent.velocity.normalized, Vector3.back);
+                    headPivot.rotation = Quaternion.RotateTowards(headPivot.rotation, rot, turnSpeed * Time.deltaTime);
+                }
+                else if(navMeshAgent.remainingDistance <= minMoveDistance)
+                {   
+                    if(navMeshAgent.hasPath == true)
+                    {
+                        navMeshAgent.ResetPath();
+                    }
+                }
+
                 break;
             }
         }
@@ -353,27 +509,59 @@ public class EnemyAI : MonoBehaviour
                     }
                     else
                     {
-                        if(CurrentEnemyState == EnemyState.ATTACK)
+                        if(startingEnemyState != EnemyState.TURRET)
                         {
-                            CurrentEnemyState = EnemyState.CHASE;
+                            if(CurrentEnemyState == EnemyState.ATTACK)
+                            {
+                                CurrentEnemyState = EnemyState.CHASE;
+                            }
+                        }
+                        else
+                        {
+                            CurrentEnemyState = EnemyState.TURRET;
                         }
                     }
                 }
             }
             else
             {
-                if(CurrentEnemyState == EnemyState.ATTACK)
+                if(startingEnemyState != EnemyState.TURRET)
                 {
-                    CurrentEnemyState = EnemyState.CHASE;
+                    if(CurrentEnemyState == EnemyState.ATTACK)
+                    {
+                        CurrentEnemyState = EnemyState.CHASE;
+                    }
+                }
+                else
+                {
+                    CurrentEnemyState = EnemyState.TURRET;
                 }
             }
         }
         else
         {
-            if(CurrentEnemyState == EnemyState.ATTACK)
+            if(startingEnemyState != EnemyState.TURRET)
             {
-                CurrentEnemyState = EnemyState.CHASE;
+                if(CurrentEnemyState == EnemyState.ATTACK)
+                {
+                    CurrentEnemyState = EnemyState.CHASE;
+                }
             }
+            else
+            {
+                CurrentEnemyState = EnemyState.TURRET;
+            }
+        }
+    }
+
+    protected IEnumerator LookAtPosition(Vector3 position)
+    {
+        Quaternion rot = Quaternion.LookRotation((position - headPivot.position).normalized, Vector3.back);
+        
+        while(Vector3.Angle(headPivot.forward, (position - headPivot.position).normalized) > 1.0f)
+        {
+            headPivot.rotation = Quaternion.RotateTowards(headPivot.rotation, rot, turnSpeed * Time.deltaTime);
+            yield return new WaitForEndOfFrame();
         }
     }
 
