@@ -19,7 +19,7 @@ public class DialogueSystem : MonoBehaviour
     
     public bool isDialogueActive = false;
 
-    public float typingSpeed = 0.2f;
+    public float typingSpeed = 0.03f;
     
     private void Awake()
     {
@@ -40,6 +40,7 @@ public class DialogueSystem : MonoBehaviour
             lines.Enqueue(dialogueLine);
         }
         
+        dialogueArea.text = "";
         characterIcon.sprite = dialogue.dialogueLines[0].character.icon;
         characterName.text = dialogue.dialogueLines[0].character.name;
         

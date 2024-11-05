@@ -69,7 +69,9 @@ public class TimeManipulation : PlayerControl
         if(isTimeSlowed == true)
         {
             timeSlowTimer -= Time.unscaledDeltaTime;
-
+            
+            HUDManager.Instance().UpdateSlowMoSliderInfo(timeSlowTimer, defaultTimeSlowDuration);
+            
             if(timeSlowTimer <= 0.0f)
             {
                 NormalizeTime();

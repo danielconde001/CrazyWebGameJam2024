@@ -95,6 +95,8 @@ public class PlayerManager : MonoBehaviour
         }
         
         currentlyEquippedWeapon = pReplacementWeapon;
+        
+        HUDManager.Instance().UpdateAmmoInfo();
     }
     
     public bool PlayerIsDead()

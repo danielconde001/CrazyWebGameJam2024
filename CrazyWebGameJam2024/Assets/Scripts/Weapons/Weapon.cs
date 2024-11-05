@@ -141,6 +141,8 @@ public class Weapon : MonoBehaviour
             SpawnBullets();
         }
         
+        HUDManager.Instance().UpdateAmmoInfo();
+        
         await Task.Delay(fireRate);
         canFire = true;
     }

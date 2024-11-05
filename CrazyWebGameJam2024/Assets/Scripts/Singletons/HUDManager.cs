@@ -20,12 +20,18 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private GameObject dialogueSystemObject;
     private DialogueSystem dialogueSystem;
     public DialogueSystem DialogueSystem { get => dialogueSystem; }
+
+    private Vector3 ammoTextDefaultPosition;
+    private RectTransform ammoTextRectTransform;
     
     private void Awake()
     {
         instance = this;
         mainCanvas = mainCanvasGameObject.GetComponent<MainCanvas>();
         dialogueSystem = dialogueSystemObject.GetComponent<DialogueSystem>();
+
+        ammoTextRectTransform = mainCanvas.AmmoText.GetComponent<RectTransform>();
+        ammoTextDefaultPosition = ammoTextRectTransform.localPosition;
     }
     
     public void UseVignette(bool pUseVignette)
@@ -37,6 +43,44 @@ public class HUDManager : MonoBehaviour
         else
         {
             mainCanvas.Vignette.DOFade(0f, 1f);
+        }
+    }
+
+    public void UpdateAmmoInfo()
+    {
+        if (PlayerManager.Instance().CurrentlyEquippedWeapon != null)
+        {
+            int currentAmmo = PlayerManager.Instance().CurrentlyEquippedWeapon.CurrentMagCapacity;
+            int maxAmmo = PlayerManager.Instance().CurrentlyEquippedWeapon.MaxMagCapacity;
+            mainCanvas.AmmoText.text = currentAmmo.ToString() + "/" + maxAmmo.ToString();
+
+            if (currentAmmo <= 0)
+            {
+                mainCanvas.AmmoText.color = Color.red;
+            }
+            else
+            {
+                mainCanvas.AmmoText.color = Color.white;
+            }
+        }
+        else
+        {
+            mainCanvas.AmmoText.text =  "--";
+        }
+    }
+    
+    public void UpdateSlowMoSliderInfo(float currentSliderValue, float maxSliderValue)
+    {
+        if (currentSliderValue > 0)
+        {
+            mainCanvas.SlowMoSlider.gameObject.SetActive(true);
+        }
+        
+        mainCanvas.SlowMoSlider.value = (currentSliderValue/maxSliderValue) ;
+
+        if (currentSliderValue <= 0)
+        {
+            mainCanvas.SlowMoSlider.gameObject.SetActive(false);
         }
     }
 }
