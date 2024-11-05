@@ -174,7 +174,7 @@ public class Weapon : MonoBehaviour
 
     protected void ShakeCamera()
     {
-        CameraShake.Instance().ShakeCamera(1,cameraShakeForce);
+        CameraShake.Instance().ShakeCamera(.5f,cameraShakeForce);
     }
 
     protected virtual void SpawnBullets()
