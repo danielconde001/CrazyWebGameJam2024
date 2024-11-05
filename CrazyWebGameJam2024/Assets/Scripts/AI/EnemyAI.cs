@@ -63,7 +63,7 @@ public class EnemyAI : MonoBehaviour
     protected bool isPlayerSpotted = false;
 
     protected EnemyState currentEnemyState;
-    public EnemyState CurrentEnemyState
+    public virtual EnemyState CurrentEnemyState
     {
         get {return currentEnemyState;}
         set
@@ -188,7 +188,7 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    public void GameOver()
+    public virtual void GameOver()
     {
         canDetect = false;
 
@@ -245,7 +245,7 @@ public class EnemyAI : MonoBehaviour
         EventsManager.Instance().OnPlayerSpotted.AddListener(PlayerAlert);
     }
 
-    protected void Update()
+    protected virtual void Update()
     {
         BasePivotFix();
 
@@ -338,7 +338,7 @@ public class EnemyAI : MonoBehaviour
         return RandomizePosition(position, randomness);
     }
 
-    protected void UpdateStateChecker()
+    protected virtual void UpdateStateChecker()
     {
         switch(currentEnemyState)
         {

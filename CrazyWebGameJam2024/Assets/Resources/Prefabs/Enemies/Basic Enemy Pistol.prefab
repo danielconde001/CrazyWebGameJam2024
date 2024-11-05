@@ -340,7 +340,7 @@ MonoBehaviour:
   aggroFieldOfVision: 270
   turnSpeed: 500
   canDetect: 1
-  startingEnemyState: 0
+  startingEnemyState: 1
   minMoveDistance: 1
   minPatrolDistance: 0.5
   initialSpeed: 2

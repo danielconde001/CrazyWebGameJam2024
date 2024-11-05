@@ -16,6 +16,7 @@ public class EnemyWeapon : Weapon
         await Task.Delay(fireRate);
         canFire = true;
     }
+    
     protected override void SpawnBullets()
     {
         BulletBehaviour spawnedBullet
