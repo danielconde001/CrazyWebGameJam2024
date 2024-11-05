@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Obstacle
+  - Enemy Shield
   layers:
   - Default
   - TransparentFX
@@ -16,8 +17,8 @@ TagManager:
   - Obstacle
   - Entity
   - Projectile
-  - 
-  - 
+  - Enemy Shield
+  - Enemy Entity
   - 
   - 
   - 
@@ -54,6 +55,9 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 3313661927
+    locked: 0
+  - name: UI
+    uniqueID: 154943557
     locked: 0
   m_RenderingLayers:
   - Default

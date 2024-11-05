@@ -191,5 +191,6 @@ public class Weapon : MonoBehaviour
         Vector2 newBulletDir = PlayerManager.Instance().GetPlayerAim().GetAimDirection().normalized;
         newBulletDir = Vector2.ClampMagnitude(newBulletDir, 1);
         spawnedBullet.SetBulletDirection(newBulletDir);
+        spawnedBullet.SetCanPenetrate(canPenetrate);
     }
 }
