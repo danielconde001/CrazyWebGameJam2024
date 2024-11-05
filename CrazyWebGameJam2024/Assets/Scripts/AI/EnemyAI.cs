@@ -16,45 +16,44 @@ public enum EnemyState
 public class EnemyAI : MonoBehaviour
 {
     [Header("Reference")]
-
-    [SerializeField] private Transform basePivot;
-    [SerializeField] private Transform headPivot;
-    [SerializeField] private NavMeshAgent navMeshAgent;
-    [SerializeField] private Animator selfAnimator;
-    [SerializeField] private SpriteRenderer selfSpriteRenderer;
-    [SerializeField] private SpriteRenderer weaponSpriteRenderer;
-    [SerializeField] private Weapon selfWeapon;
+    [SerializeField] protected Transform basePivot;
+    [SerializeField] protected Transform headPivot;
+    [SerializeField] protected NavMeshAgent navMeshAgent;
+    [SerializeField] protected Animator selfAnimator;
+    [SerializeField] protected Weapon selfWeapon;
+    [SerializeField] protected Collider2D selfCapsuleCollider;
 
     [Header("Detection")]
-    [SerializeField] private LayerMask detectionLayers;
-    [SerializeField] private string playerTag;
-    [SerializeField] private float initialViewDistance;
-    [SerializeField] private float aggroViewDistance;
-    [SerializeField] private float fieldOfVision;
-    [SerializeField] private float turnSpeed;
-    [SerializeField] private bool canDetect = true;
+    [SerializeField] protected LayerMask detectionLayers;
+    [SerializeField] protected string playerTag;
+    [SerializeField] protected float initialViewDistance;
+    [SerializeField] protected float aggroViewDistance;
+    [SerializeField] protected float initialFieldOfVision;
+    [SerializeField] protected float aggroFieldOfVision;
+    [SerializeField] protected float turnSpeed;
+    [SerializeField] protected bool canDetect = true;
 
     [Header("State")]
-    [SerializeField] private float minMoveDistance;
-    [SerializeField] private float wanderSpeed;
-    [SerializeField] private float minWanderDistance;
-    [SerializeField] private float maxWanderDistance;
-    [SerializeField] private float minWanderDelay;
-    [SerializeField] private float maxWanderDelay;
-    [SerializeField] private float chaseSpeed;
-    [SerializeField] private float chaseStopDelay;
-    [SerializeField] private float searchDuration;
+    [SerializeField] protected float minMoveDistance;
+    [SerializeField] protected float wanderSpeed;
+    [SerializeField] protected float minWanderDistance;
+    [SerializeField] protected float maxWanderDistance;
+    [SerializeField] protected float minWanderDelay;
+    [SerializeField] protected float maxWanderDelay;
+    [SerializeField] protected float chaseSpeed;
+    [SerializeField] protected float chaseStopDelay;
+    [SerializeField] protected float searchDuration;
 
-    private Sequence searchSequence;
-    private Transform rootTransform;
-    private Transform playerTransform; 
-    private Vector3 lastPlayerPosition;
-    private Vector3 randomWanderPos;
-    private float timer = 0.0f;
-    private bool isAIStopped = false;
-    private bool isPlayerSpotted = false;
+    protected Sequence searchSequence;
+    protected Transform rootTransform;
+    protected Transform playerTransform; 
+    protected Vector3 lastPlayerPosition;
+    protected Vector3 randomWanderPos;
+    protected float timer = 0.0f;
+    protected bool isAIStopped = false;
+    protected bool isPlayerSpotted = false;
 
-    private EnemyState currentEnemyState;
+    protected EnemyState currentEnemyState;
     public EnemyState CurrentEnemyState
     {
         get {return currentEnemyState;}
@@ -62,7 +61,7 @@ public class EnemyAI : MonoBehaviour
         {
             if(value == currentEnemyState)
             {
-                return;
+                //return;
             }
             
             EnemyState oldEnemyState = currentEnemyState;
@@ -77,7 +76,7 @@ public class EnemyAI : MonoBehaviour
                 }
                 case EnemyState.ATTACK:
                 {
-                    
+
                     break;
                 }
                 case EnemyState.CHASE:
@@ -108,6 +107,7 @@ public class EnemyAI : MonoBehaviour
                 }
                 case EnemyState.ATTACK:
                 {
+                    EventsManager.Instance().PlayerSpotted();
                     navMeshAgent.ResetPath();
                     isPlayerSpotted = true;
                     break;
@@ -149,18 +149,37 @@ public class EnemyAI : MonoBehaviour
 
     public void StopAI()
     {
+        if(searchSequence != null)
+        {
+            searchSequence.Kill();
+        }
+
+        selfCapsuleCollider.enabled = false;
         isAIStopped = true;
         navMeshAgent.isStopped = true;
     }
 
-    private void Awake()
+    public void PlayerAlert()
+    {
+        if(CurrentEnemyState != EnemyState.ATTACK)
+        {
+            CurrentEnemyState = EnemyState.CHASE;
+        }
+    }
+
+    protected virtual void Awake()
     {
         rootTransform = transform;
         CurrentEnemyState = EnemyState.WANDER;
-        playerTransform = PlayerManager.Instance().GetPlayer().transform;
     }
 
-    private void Update()
+    protected void Start()
+    {
+        playerTransform = PlayerManager.Instance().GetPlayer().transform;
+        EventsManager.Instance().OnPlayerSpotted.AddListener(PlayerAlert);
+    }
+
+    protected void Update()
     {
         BasePivotFix();
 
@@ -171,8 +190,19 @@ public class EnemyAI : MonoBehaviour
 
         if(isAIStopped == false)
         {
-            //selfAnimator.SetFloat("Velocity", navMeshAgent.velocity.magnitude);
-            selfSpriteRenderer.flipX = navMeshAgent.velocity.x > 0f ? false : navMeshAgent.velocity.x < 0f ? true : selfSpriteRenderer.flipX;
+            //THIS IS USING PLAYER ANIMATOR MAYBE CHANGE THESE
+            if(navMeshAgent.velocity.normalized.y != 0 || navMeshAgent.velocity.normalized.x != 0)
+            {
+                selfAnimator.SetBool("isMoving", true);
+                selfAnimator.SetFloat("MoveX", navMeshAgent.velocity.normalized.x);
+                selfAnimator.SetFloat("MoveY", navMeshAgent.velocity.normalized.y);
+            }
+            else
+            {
+                selfAnimator.SetBool("isMoving", false);
+            }
+
+            selfWeapon.GetSpriteRenderer().flipY = headPivot.forward.x < 0.0f;
 
             UpdateStateChecker();
 
@@ -183,7 +213,7 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    private Vector3 GetRandomPosition()
+    protected Vector3 GetRandomPosition()
     {
         Vector3 randomPos = new Vector3(basePivot.position.x + Random.Range(minWanderDistance, maxWanderDistance), 
                                         basePivot.position.y + Random.Range(minWanderDistance, maxWanderDistance), 
@@ -216,20 +246,24 @@ public class EnemyAI : MonoBehaviour
         return GetRandomPosition();
     }
 
-    private void UpdateStateChecker()
+    protected void UpdateStateChecker()
     {
         switch(currentEnemyState)
         {
             case EnemyState.WANDER:
             {
-                if(navMeshAgent.remainingDistance > minMoveDistance)
+                if(navMeshAgent.remainingDistance > minMoveDistance && navMeshAgent.velocity.magnitude != 0.0f)
                 {
-                    Vector3 randomWanderPosOffset = new Vector3(randomWanderPos.x, randomWanderPos.y + headPivot.localPosition.y, randomWanderPos.z);
-                    Quaternion rot = Quaternion.LookRotation((randomWanderPosOffset - headPivot.position).normalized, Vector3.back);
+                    Quaternion rot = Quaternion.LookRotation(navMeshAgent.velocity.normalized, Vector3.back);
                     headPivot.rotation = Quaternion.RotateTowards(headPivot.rotation, rot, turnSpeed * Time.deltaTime);
                 }
                 else if(navMeshAgent.remainingDistance <= minMoveDistance)
                 {
+                    if(navMeshAgent.hasPath == true)
+                    {
+                        navMeshAgent.ResetPath();
+                    }
+            
                     if(timer > 0.0f)
                     {
                         timer -= Time.deltaTime;
@@ -246,7 +280,8 @@ public class EnemyAI : MonoBehaviour
             }
             case EnemyState.ATTACK:
             {
-                Quaternion rot = Quaternion.LookRotation((playerTransform.position - headPivot.position).normalized, Vector3.back);
+                Vector3 playerPosOffset = new Vector3(playerTransform.position.x, playerTransform.position.y + headPivot.localPosition.y, playerTransform.position.z);
+                Quaternion rot = Quaternion.LookRotation((playerPosOffset - headPivot.position).normalized, Vector3.back);
                 headPivot.rotation = Quaternion.RotateTowards(headPivot.rotation, rot, turnSpeed * Time.deltaTime);
                 
                 RaycastHit2D raycastHit2D = Physics2D.Raycast(headPivot.position, headPivot.forward, aggroViewDistance, detectionLayers);
@@ -262,8 +297,18 @@ public class EnemyAI : MonoBehaviour
             }
             case EnemyState.CHASE:
             {
-                if(navMeshAgent.remainingDistance <= minMoveDistance)
+                if(navMeshAgent.remainingDistance > minMoveDistance && navMeshAgent.velocity.magnitude != 0.0f)
                 {
+                    Quaternion rot = Quaternion.LookRotation(navMeshAgent.velocity.normalized, Vector3.back);
+                    headPivot.rotation = Quaternion.RotateTowards(headPivot.rotation, rot, turnSpeed * Time.deltaTime);
+                }
+                else if(navMeshAgent.remainingDistance <= minMoveDistance)
+                {   
+                    if(navMeshAgent.hasPath == true)
+                    {
+                        navMeshAgent.ResetPath();
+                    }
+
                     if(timer > 0.0f)
                     {
                         timer -= Time.deltaTime;
@@ -292,12 +337,12 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    private void DetectionChecker()
+    protected void DetectionChecker()
     {
         if(Vector3.Distance(basePivot.position, playerTransform.position) < (isPlayerSpotted == false ? initialViewDistance : aggroViewDistance))
         {
             Vector3 playerDirection = (playerTransform.position - basePivot.position).normalized;
-            if(Vector3.Angle(headPivot.forward, playerDirection) < (fieldOfVision / 2.0f))
+            if(Vector3.Angle(headPivot.forward, playerDirection) < ((isPlayerSpotted == false ? initialFieldOfVision : aggroFieldOfVision) / 2.0f))
             {
                 RaycastHit2D raycastHit2D = Physics2D.Raycast(headPivot.position, playerDirection, (isPlayerSpotted == false ? initialViewDistance : aggroViewDistance), detectionLayers);
                 if(raycastHit2D.collider != null)
@@ -332,7 +377,7 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    private void BasePivotFix()
+    protected void BasePivotFix()
     {
         basePivot.localPosition = new Vector3(basePivot.localPosition.x, basePivot.localPosition.y, -rootTransform.position.z);
     }

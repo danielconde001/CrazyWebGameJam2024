@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7323127640513544793}
   - component: {fileID: 2720608066932631998}
   m_Layer: 7
-  m_Name: Enemy Pistol
+  m_Name: Enemy AssaultRifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,8 +81,8 @@ SpriteRenderer:
   m_SortingLayerID: -562134439
   m_SortingLayer: 2
   m_SortingOrder: 3
-  m_Sprite: {fileID: 4633390293333131383, guid: f0962985c9ac0fa4db431a0fa7cacede, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 5258679567177250451, guid: f0962985c9ac0fa4db431a0fa7cacede, type: 3}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -105,14 +105,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   center: {fileID: 3761695099668459490}
-  type: 1
+  type: 2
   defaultLocalPosition: {x: 0, y: 0, z: 0.4}
   damage: 1
-  fireRate: 500
+  fireRate: 80
   canPenetrate: 0
   maxMagCapacity: -1
   currentMagCapacity: -1
-  gunshotClip: {fileID: 8300000, guid: 1885dc9cd1158714f8d8d91a23410715, type: 3}
+  gunshotClip: {fileID: 8300000, guid: 3b90cd648203c3545bac30552fc48cc9, type: 3}
   emptyMagClip: {fileID: 8300000, guid: 24c22b6c7fd8df645914244c58bf5eba, type: 3}
   bullet: {fileID: 8406151069148535810, guid: cd422ffa4a6f2f947a058d790dd6e580, type: 3}
   muzzle: {fileID: 3484958260595939379}
@@ -152,7 +152,7 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: -0.06}
-  m_Size: {x: 0.5, y: 0.32}
+  m_Size: {x: 0.82, y: 0.41}
   m_Direction: 1
 --- !u!114 &2720608066932631998
 MonoBehaviour:

@@ -6,6 +6,7 @@ public class BulletBehaviour : MonoBehaviour
     [SerializeField] private string enemyTag;
     [SerializeField] private float bulletSpeed;
     private Vector2 bulletDirection = Vector2.right;
+    private bool canPenetrate = false;
     private Rigidbody2D selfRigidbody2D;
 
     private void Awake()
@@ -29,9 +30,20 @@ public class BulletBehaviour : MonoBehaviour
         bulletDirection = newDirection;
     }
 
+    public void SetCanPenetrate(bool _canPenetrate)
+    {
+        canPenetrate = _canPenetrate;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == enemyTag)
+        if(collision.tag == "Enemy Shield" && enemyTag == "Enemy")
+        {
+            collision.GetComponent<EnemyShield>().ShieldHit(canPenetrate);
+            Destroy(gameObject);
+        }
+
+        else if (collision.tag == enemyTag)
         {
             collision.GetComponent<Health>().DeductHealth(1);
             Destroy(gameObject);
