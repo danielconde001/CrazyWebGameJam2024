@@ -14,14 +14,19 @@ public class HUDManager : MonoBehaviour
         return instance;
     }
 
+    [SerializeField] private GameObject mainCanvasGameObject;
+    private MainCanvas mainCanvas;
+    
+    [SerializeField] private GameObject dialogueSystemObject;
+    private DialogueSystem dialogueSystem;
+    public DialogueSystem DialogueSystem { get => dialogueSystem; }
+    
     private void Awake()
     {
         instance = this;
         mainCanvas = mainCanvasGameObject.GetComponent<MainCanvas>();
+        dialogueSystem = dialogueSystemObject.GetComponent<DialogueSystem>();
     }
-
-    [SerializeField] private GameObject mainCanvasGameObject;
-    private MainCanvas mainCanvas;
     
     public void UseVignette(bool pUseVignette)
     {

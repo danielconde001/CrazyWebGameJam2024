@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
@@ -72,6 +72,17 @@ public class PlayerManager : MonoBehaviour
         return playerShoot;
     }
     
+    [SerializeField] private PlayerMove playerMove;
+    public PlayerMove GetPlayerMove()
+    {
+        if (playerMove == null)
+            playerMove = player.GetComponent<PlayerMove>();
+        
+        return playerMove;
+    }
+    
+    private List<PlayerControl> playerControls = new List<PlayerControl>();
+    
     public void ReplaceEquippedGunWith(Weapon pReplacementWeapon)
     {
         Vector3 dropPosition = pReplacementWeapon.transform.position;
@@ -109,6 +120,11 @@ public class PlayerManager : MonoBehaviour
         {
             playerShoot = player.GetComponent<PlayerShoot>();
         }
+        
+        if (playerMove == null)
+        {
+            playerMove = player.GetComponent<PlayerMove>();
+        }
     }
 
     private void Start()
@@ -116,6 +132,22 @@ public class PlayerManager : MonoBehaviour
         if (weaponAnchor == null)
         {
             weaponAnchor = player.transform.Find("weapon_anchor");
+        }
+    }
+
+    public void LosePlayerControl()
+    {
+        for (int i = 0; i < playerControls.Count; i++)
+        {
+            playerControls[i].LoseControl();
+        }
+    }
+    
+    public void RegainPlayerControl()
+    {
+        for (int i = 0; i < playerControls.Count; i++)
+        {
+            playerControls[i].RegainControl();
         }
     }
 }

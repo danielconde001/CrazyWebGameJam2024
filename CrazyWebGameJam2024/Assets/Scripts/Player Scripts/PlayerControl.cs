@@ -7,4 +7,9 @@ public abstract class PlayerControl : MonoBehaviour
     {
         canControl = false;
     }
+
+    public void RegainControl()
+    {
+        canControl = true;
+    }
 }
