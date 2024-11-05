@@ -114,16 +114,19 @@ public class PlayerManager : MonoBehaviour
         if (playerAim == null)
         {
             playerAim = player.GetComponent<PlayerAim>();
+            playerControls.Add(playerAim);
         }
 
         if (playerShoot == null)
         {
             playerShoot = player.GetComponent<PlayerShoot>();
+            playerControls.Add(playerShoot);
         }
         
         if (playerMove == null)
         {
             playerMove = player.GetComponent<PlayerMove>();
+            playerControls.Add(playerMove);
         }
     }
 
