@@ -328,7 +328,7 @@ MonoBehaviour:
   headPivot: {fileID: 3275670745110719295}
   navMeshAgent: {fileID: 6564932315338382988}
   selfAnimator: {fileID: 7250472730031656127}
-  selfWeapon: {fileID: 7626761904346867239}
+  selfWeapon: {fileID: 2064390802669150189}
   selfCapsuleCollider: {fileID: 7319866322950180826}
   detectionLayers:
     serializedVersion: 2
@@ -340,7 +340,7 @@ MonoBehaviour:
   aggroFieldOfVision: 270
   turnSpeed: 500
   canDetect: 1
-  startingEnemyState: 0
+  startingEnemyState: 1
   minMoveDistance: 1
   minPatrolDistance: 0.5
   initialSpeed: 2
@@ -492,15 +492,15 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0710b90a0cf2324294364f682e47bae, type: 3}
---- !u!114 &7626761904346867239 stripped
+--- !u!114 &2064390802669150189 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7489116321410423993, guid: a0710b90a0cf2324294364f682e47bae, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1341840047665685875, guid: a0710b90a0cf2324294364f682e47bae, type: 3}
   m_PrefabInstance: {fileID: 1024881273906936478}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9b9981c6d23899499311e137d3034f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ae89d446a3bcd5469235170073ab934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &8419289107930010713 stripped
