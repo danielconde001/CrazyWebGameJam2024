@@ -144,6 +144,7 @@ public class PlayerManager : MonoBehaviour
         {
             playerControls[i].LoseControl();
         }
+        playerMove.StopMove();
     }
     
     public void RegainPlayerControl()

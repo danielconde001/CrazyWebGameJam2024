@@ -14,6 +14,7 @@ public class PlayerMove : PlayerControl
 
     public void StopMove()
     {
+        animator.SetBool("isMoving", false);
         selfRigidbody2D.linearVelocity = Vector2.zero;
     }
 
