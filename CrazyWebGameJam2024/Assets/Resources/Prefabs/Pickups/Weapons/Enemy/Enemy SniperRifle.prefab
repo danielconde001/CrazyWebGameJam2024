@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8858104106701024967}
   - component: {fileID: 2707565667308519378}
-  - component: {fileID: 7489116321410423993}
+  - component: {fileID: 1341840047665685875}
   - component: {fileID: 3586154390601180334}
   - component: {fileID: 4567630903667206223}
   m_Layer: 7
@@ -92,7 +92,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7489116321410423993
+--- !u!114 &1341840047665685875
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 541182467245130642}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9b9981c6d23899499311e137d3034f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ae89d446a3bcd5469235170073ab934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   center: {fileID: 1967859176446366216}
@@ -112,6 +112,7 @@ MonoBehaviour:
   canPenetrate: 1
   maxMagCapacity: -1
   currentMagCapacity: -1
+  cameraShakeForce: 1
   gunshotClip: {fileID: 8300000, guid: 61cb1814359e2e84fbbb2d636965089e, type: 3}
   emptyMagClip: {fileID: 8300000, guid: 24c22b6c7fd8df645914244c58bf5eba, type: 3}
   bullet: {fileID: 8406151069148535810, guid: cd422ffa4a6f2f947a058d790dd6e580, type: 3}
