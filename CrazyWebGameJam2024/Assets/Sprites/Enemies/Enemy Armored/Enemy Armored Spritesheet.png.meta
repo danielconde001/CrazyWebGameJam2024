@@ -1,55 +1,43 @@
 fileFormatVersion: 2
-guid: ff02373716d215a49b2c618d6775fcc8
+guid: 0653080ffb22b7443a6df6a8496a0c50
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2711811092846047352
-    second: Enemy C spritesheet V1_0
+      213: -7075675808812874049
+    second: Enemy D spritesheet V1_0
   - first:
-      213: -1112709815689155059
-    second: Enemy C spritesheet V1_1
+      213: -8988335512362913115
+    second: Enemy D spritesheet V1_1
   - first:
-      213: -2068965219029054378
-    second: Enemy C spritesheet V1_2
+      213: -8440875116087352917
+    second: Enemy D spritesheet V1_2
   - first:
-      213: -7087911329362567796
-    second: Enemy C spritesheet V1_3
+      213: -5892898086207603922
+    second: Enemy D spritesheet V1_3
   - first:
-      213: -1321769806948646606
-    second: Enemy C spritesheet V1_4
+      213: 5447350318727192773
+    second: Enemy D spritesheet V1_4
   - first:
-      213: 8999457219726636130
-    second: Enemy C spritesheet V1_5
+      213: -8680780555536934052
+    second: Enemy D spritesheet V1_5
   - first:
-      213: -3253368258913186214
-    second: Enemy C spritesheet V1_6
+      213: 2947668896402246975
+    second: Enemy D spritesheet V1_6
   - first:
-      213: -1629795936280198889
-    second: Enemy C spritesheet V1_7
+      213: -47030113932031482
+    second: Enemy D spritesheet V1_7
   - first:
-      213: 35714185856533220
-    second: Enemy C spritesheet V1_8
+      213: 36298338384328102
+    second: Enemy D spritesheet V1_8
   - first:
-      213: -327334593947122620
-    second: Enemy C spritesheet V1_9
+      213: -4817674858851723147
+    second: Enemy D spritesheet V1_9
   - first:
-      213: 8890166483122824427
-    second: Enemy C spritesheet V1_10
+      213: 5365108546389394232
+    second: Enemy D spritesheet V1_10
   - first:
-      213: -8098737609760814954
-    second: Enemy C spritesheet V1_11
-  - first:
-      213: 4198042567309305300
-    second: Enemy C spritesheet V1_12
-  - first:
-      213: -1672830217765943084
-    second: Enemy C spritesheet V1_13
-  - first:
-      213: 1778412736485107242
-    second: Enemy C spritesheet V1_14
-  - first:
-      213: -2870503032106910924
-    second: Enemy C spritesheet V1_15
+      213: 955025574359461996
+    second: Enemy D spritesheet V1_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -145,7 +133,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Enemy Havoc Spritesheet_0
+      name: Enemy D spritesheet V1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -160,14 +148,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23a57a294abb58446910cef8b0f7b573
-      internalID: -1472609077
+      spriteID: 9d6681f4f30c7a24b8f06b88974f8ad0
+      internalID: -1039219876
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy Havoc Spritesheet_1
+      name: Enemy D spritesheet V1_1
       rect:
         serializedVersion: 2
         x: 32
@@ -182,14 +170,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b63e980a5bf5d5f4396fa6009485e305
-      internalID: -808788540
+      spriteID: f115acb54c222914cbc98999f6b49ba8
+      internalID: -2059042300
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy Havoc Spritesheet_2
+      name: Enemy D spritesheet V1_2
       rect:
         serializedVersion: 2
         x: 64
@@ -204,14 +192,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0035543f482b7948978cb1dd2c7b786
-      internalID: -778774194
+      spriteID: 601d9f47a52d0a64ca0308a7f306f62b
+      internalID: -837354569
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy Havoc Spritesheet_3
+      name: Enemy D spritesheet V1_3
       rect:
         serializedVersion: 2
         x: 0
@@ -226,14 +214,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 806705487a88a8f4685ece575129eaec
-      internalID: 782067284
+      spriteID: 9be63337ab5477f4cb11c1f5e532e65e
+      internalID: 780868861
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy Havoc Spritesheet_4
+      name: Enemy D spritesheet V1_4
       rect:
         serializedVersion: 2
         x: 32
@@ -248,14 +236,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6d4e89f7b688d54fbd80d9e0256ad05
-      internalID: -1915950917
+      spriteID: 1fd5c98d938a99549b8cf8d36c60c9b5
+      internalID: 457095407
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy Havoc Spritesheet_5
+      name: Enemy D spritesheet V1_5
       rect:
         serializedVersion: 2
         x: 64
@@ -270,14 +258,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44b0f514f701a5e42892ed31eb99e234
-      internalID: 1264390935
+      spriteID: 80d68fe31ba2dc140a404603dfb9756a
+      internalID: 1388154780
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy Havoc Spritesheet_6
+      name: Enemy D spritesheet V1_6
       rect:
         serializedVersion: 2
         x: 96
@@ -292,14 +280,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3527c235462956c41aca1aa5ed111c76
-      internalID: 149474880
+      spriteID: 78f19a1285466bc4e802c5361d80a9c0
+      internalID: 1674681156
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy Havoc Spritesheet_7
+      name: Enemy D spritesheet V1_7
       rect:
         serializedVersion: 2
         x: 0
@@ -314,14 +302,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7f9032824d368943986acee7f35515b
-      internalID: 649170657
+      spriteID: e0151e6c049086c4f917b7ba97a27338
+      internalID: -1282101356
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy Havoc Spritesheet_8
+      name: Enemy D spritesheet V1_8
       rect:
         serializedVersion: 2
         x: 32
@@ -336,14 +324,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1020ee2888771b749a16118e3e6b0012
-      internalID: 2005249451
+      spriteID: 036d4af3796da1e4aae2a8d1ed787795
+      internalID: -1336648445
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy Havoc Spritesheet_9
+      name: Enemy D spritesheet V1_9
       rect:
         serializedVersion: 2
         x: 64
@@ -358,14 +346,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8a8af285ffe6d2418087514770fe318
-      internalID: -659728706
+      spriteID: f5c17cdd2de75b34e9e200ee141b8a8a
+      internalID: 1144099766
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy Havoc Spritesheet_10
+      name: Enemy D spritesheet V1_10
       rect:
         serializedVersion: 2
         x: 96
@@ -380,14 +368,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df6573cc96ff62c418d46cdbe3606752
-      internalID: 1052625283
+      spriteID: 4131295fe9129e5489d2358ebd5e5368
+      internalID: -1931013351
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy Havoc Spritesheet_11
+      name: Enemy D spritesheet V1_11
       rect:
         serializedVersion: 2
         x: 128
@@ -402,52 +390,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa6d2f261cfa3c542a0c5e255990c124
-      internalID: 830575092
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemy Havoc Spritesheet_12
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 224
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.05}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ae47d5f6a9b498b4291a514d48a818d0
-      internalID: 1504797318
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemy Havoc Spritesheet_13
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 224
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.05}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ee038455fed5b8640a8bf259f198e46c
-      internalID: -817134242
+      spriteID: 774a9798769efcc4c9ca537976d318c0
+      internalID: 1172468615
       vertices: []
       indices: 
       edges: []
@@ -456,7 +400,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 0bb0834979f14ff48a8de9b073ce8f03
+    spriteID: d730e5d9b17daf24ebdf644f47ab909b
     internalID: 0
     vertices: []
     indices: 
@@ -466,20 +410,18 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Enemy Havoc Spritesheet_0: -1472609077
-      Enemy Havoc Spritesheet_1: -808788540
-      Enemy Havoc Spritesheet_10: 1052625283
-      Enemy Havoc Spritesheet_11: 830575092
-      Enemy Havoc Spritesheet_12: 1504797318
-      Enemy Havoc Spritesheet_13: -817134242
-      Enemy Havoc Spritesheet_2: -778774194
-      Enemy Havoc Spritesheet_3: 782067284
-      Enemy Havoc Spritesheet_4: -1915950917
-      Enemy Havoc Spritesheet_5: 1264390935
-      Enemy Havoc Spritesheet_6: 149474880
-      Enemy Havoc Spritesheet_7: 649170657
-      Enemy Havoc Spritesheet_8: 2005249451
-      Enemy Havoc Spritesheet_9: -659728706
+      Enemy D spritesheet V1_0: -1039219876
+      Enemy D spritesheet V1_1: -2059042300
+      Enemy D spritesheet V1_10: -1931013351
+      Enemy D spritesheet V1_11: 1172468615
+      Enemy D spritesheet V1_2: -837354569
+      Enemy D spritesheet V1_3: 780868861
+      Enemy D spritesheet V1_4: 457095407
+      Enemy D spritesheet V1_5: 1388154780
+      Enemy D spritesheet V1_6: 1674681156
+      Enemy D spritesheet V1_7: -1282101356
+      Enemy D spritesheet V1_8: -1336648445
+      Enemy D spritesheet V1_9: 1144099766
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
