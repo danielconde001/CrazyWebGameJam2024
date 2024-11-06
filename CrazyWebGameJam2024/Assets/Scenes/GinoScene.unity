@@ -4338,10 +4338,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1972328555975914989, guid: 3cedcc63e567a7b4bad2247da2ea4343, type: 3}
-      propertyPath: startingEnemyState
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4597920712449731883, guid: 3cedcc63e567a7b4bad2247da2ea4343, type: 3}
       propertyPath: m_Name
       value: Shielded Enemy Pistol
@@ -4349,14 +4345,6 @@ PrefabInstance:
     - target: {fileID: 4597920712449731883, guid: 3cedcc63e567a7b4bad2247da2ea4343, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5524831254662084257, guid: 3cedcc63e567a7b4bad2247da2ea4343, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5524831254662084257, guid: 3cedcc63e567a7b4bad2247da2ea4343, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9209173532195881908, guid: 3cedcc63e567a7b4bad2247da2ea4343, type: 3}
       propertyPath: m_LocalPosition.x
