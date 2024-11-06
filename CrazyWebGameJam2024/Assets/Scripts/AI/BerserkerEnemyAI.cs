@@ -119,8 +119,7 @@ public class BerserkerEnemyAI : EnemyAI
             if((navMeshAgent.velocity.normalized.y != 0 || navMeshAgent.velocity.normalized.x != 0) && navMeshAgent.hasPath == true)
             {
                 selfAnimator.SetBool("isMoving", true);
-                selfAnimator.SetFloat("MoveX", navMeshAgent.velocity.normalized.x);
-                selfAnimator.SetFloat("MoveY", navMeshAgent.velocity.normalized.y);
+                spriteRenderer.flipX = navMeshAgent.velocity.x < 0;
             }
             else
             {

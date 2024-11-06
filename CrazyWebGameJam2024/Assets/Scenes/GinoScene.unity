@@ -5260,7 +5260,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 200
-  bounds: {fileID: 824726550}
 --- !u!114 &6981389668175821167
 MonoBehaviour:
   m_ObjectHideFlags: 0
