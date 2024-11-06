@@ -61,7 +61,8 @@ public class EnemyAI : MonoBehaviour
     protected float timer = 0.0f;
     protected bool isAIStopped = false;
     protected bool isPlayerSpotted = false;
-
+    protected SpriteRenderer spriteRenderer;
+    
     protected EnemyState currentEnemyState;
     public virtual EnemyState CurrentEnemyState
     {
@@ -237,6 +238,7 @@ public class EnemyAI : MonoBehaviour
         rootTransform = transform;
         initialPosition = basePivot.position;
         CurrentEnemyState = startingEnemyState;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     protected void Start()
@@ -259,8 +261,7 @@ public class EnemyAI : MonoBehaviour
             if((navMeshAgent.velocity.normalized.y != 0 || navMeshAgent.velocity.normalized.x != 0) && navMeshAgent.hasPath == true)
             {
                 selfAnimator.SetBool("isMoving", true);
-                selfAnimator.SetFloat("MoveX", navMeshAgent.velocity.normalized.x);
-                selfAnimator.SetFloat("MoveY", navMeshAgent.velocity.normalized.y);
+                spriteRenderer.flipX = navMeshAgent.velocity.x < 0;
             }
             else
             {

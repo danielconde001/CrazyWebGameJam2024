@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BeserkerAnimatorController
+  m_Controller: {fileID: 9100000, guid: 6e051e31d0f392a4b8096a276976a82c, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: e45dbea4efa76a54496249cd6035b9e0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: fff0f463710139e4fbc9d8a4fba26b3d, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: cd36c2f04f7b0384d83c9127b2c2a228, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a0e236e409401ff4282e6fad76ceab3a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 8ab9a106d11203743b4d7883d0554ab1, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 779add6283a54804f9080592251c6ecb, type: 2}

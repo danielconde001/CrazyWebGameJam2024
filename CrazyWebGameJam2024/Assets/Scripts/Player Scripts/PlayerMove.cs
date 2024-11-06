@@ -6,7 +6,6 @@ using UnityEngine;
 public class PlayerMove : PlayerControl
 {
     [SerializeField] private float moveSpeed = 4f;
-    [SerializeField] private Bounds bounds;
     private Rigidbody2D selfRigidbody2D;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
@@ -36,8 +35,7 @@ public class PlayerMove : PlayerControl
         if (moveY != 0 || moveX != 0)
         {
             animator.SetBool("isMoving", true);
-            animator.SetFloat("MoveX", moveX);
-            animator.SetFloat("MoveY", moveY);
+            spriteRenderer.flipX = moveX < 0;
         }
         else
         {
@@ -48,15 +46,5 @@ public class PlayerMove : PlayerControl
         moveDirection = Vector3.ClampMagnitude(moveDirection, 1);
         
         selfRigidbody2D.linearVelocity = moveDirection * moveSpeed * Time.fixedDeltaTime;
-
-        #region Bounds
-        if (bounds != null)
-        {
-            if (transform.position.x > bounds.xMax) transform.position = new Vector2(bounds.xMax, transform.position.y);
-            if (transform.position.x < bounds.xMin) transform.position = new Vector2(bounds.xMin, transform.position.y);
-            if (transform.position.y > bounds.yMax) transform.position = new Vector2(transform.position.x, bounds.yMax);
-            if (transform.position.y < bounds.yMin) transform.position = new Vector2(transform.position.x, bounds.yMin);
-        }
-        #endregion
     }
 }
