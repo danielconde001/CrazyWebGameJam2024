@@ -26,8 +26,6 @@ public class SceneManager : MonoBehaviour
         instance = this;
 
         DontDestroyOnLoad(this.gameObject);
-
-        LoadSceneWithFade("Level-001");
     }
 
     public void LoadScene(int pIndex)
