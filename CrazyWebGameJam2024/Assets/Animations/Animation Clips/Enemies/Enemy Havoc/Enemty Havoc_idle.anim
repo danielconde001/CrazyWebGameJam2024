@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Enemy Havoc_Idle
+  m_Name: Enemty Havoc_idle
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,11 +21,11 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 2711811092846047352, guid: ff02373716d215a49b2c618d6775fcc8, type: 3}
+      value: {fileID: -279425249, guid: ff02373716d215a49b2c618d6775fcc8, type: 3}
     - time: 0.083333336
-      value: {fileID: -1112709815689155059, guid: ff02373716d215a49b2c618d6775fcc8, type: 3}
+      value: {fileID: -296349681, guid: ff02373716d215a49b2c618d6775fcc8, type: 3}
     - time: 0.16666667
-      value: {fileID: -2068965219029054378, guid: ff02373716d215a49b2c618d6775fcc8, type: 3}
+      value: {fileID: 1941448357, guid: ff02373716d215a49b2c618d6775fcc8, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -48,9 +48,9 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 2711811092846047352, guid: ff02373716d215a49b2c618d6775fcc8, type: 3}
-    - {fileID: -1112709815689155059, guid: ff02373716d215a49b2c618d6775fcc8, type: 3}
-    - {fileID: -2068965219029054378, guid: ff02373716d215a49b2c618d6775fcc8, type: 3}
+    - {fileID: -279425249, guid: ff02373716d215a49b2c618d6775fcc8, type: 3}
+    - {fileID: -296349681, guid: ff02373716d215a49b2c618d6775fcc8, type: 3}
+    - {fileID: 1941448357, guid: ff02373716d215a49b2c618d6775fcc8, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
