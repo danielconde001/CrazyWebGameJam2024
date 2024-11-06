@@ -21,6 +21,10 @@ public class HUDManager : MonoBehaviour
     private DialogueSystem dialogueSystem;
     public DialogueSystem DialogueSystem { get => dialogueSystem; }
 
+    [SerializeField] private GameObject audioManagerObject;
+    private AudioManager audioManager;
+    public AudioManager AudioManager { get => audioManager; }
+
     private Vector3 ammoTextDefaultPosition;
     private RectTransform ammoTextRectTransform;
     
@@ -29,6 +33,7 @@ public class HUDManager : MonoBehaviour
         instance = this;
         mainCanvas = mainCanvasGameObject.GetComponent<MainCanvas>();
         dialogueSystem = dialogueSystemObject.GetComponent<DialogueSystem>();
+        audioManager = audioManagerObject.GetComponent<AudioManager>();
 
         ammoTextRectTransform = mainCanvas.AmmoText.GetComponent<RectTransform>();
         ammoTextDefaultPosition = ammoTextRectTransform.localPosition;
