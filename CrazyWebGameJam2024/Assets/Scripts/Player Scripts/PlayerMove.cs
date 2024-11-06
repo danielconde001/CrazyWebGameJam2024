@@ -10,6 +10,12 @@ public class PlayerMove : PlayerControl
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     private Vector2 moveDirection;
+    private bool isMoving = false;
+
+    public bool IsMoving
+    {
+        get => isMoving;
+    }
 
     public void StopMove()
     {
@@ -26,19 +32,24 @@ public class PlayerMove : PlayerControl
     
     private void Update()
     {
-        if(!canControl)
+        if (!canControl)
+        {
+            isMoving = false;
             return;
+        }
 
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
         
         if (moveY != 0 || moveX != 0)
-        {
+        { 
+            isMoving = true;
             animator.SetBool("isMoving", true);
             spriteRenderer.flipX = moveX < 0;
         }
         else
         {
+            isMoving = false;
             animator.SetBool("isMoving", false);
         }
 

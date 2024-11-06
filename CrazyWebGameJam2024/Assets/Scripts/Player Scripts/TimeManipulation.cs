@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using DG.Tweening;
 
@@ -8,10 +9,25 @@ public class TimeManipulation : PlayerControl
     [SerializeField] private float timeHiccupTransitionDuration;
     [SerializeField] private float slowTimeScale;
     [SerializeField] private float normalTimeScale;
-
+    
+    [SerializeField] private bool unlimitedTimeSlow = false;
+    [SerializeField] private bool slowTimeOnStart = false;
+    [SerializeField] private bool movingStopsTimeSlow = false;
+    [SerializeField] private bool useTimeBar = true;
+    
+    public bool TimeSlowIsUnlimited { get { return unlimitedTimeSlow; } }
+    
     private Tween timeSlowTween;
     private bool isTimeSlowed = false;
     private float timeSlowTimer = 0.0f;
+
+    private void Start()
+    {
+        if (slowTimeOnStart)
+        {
+            SlowTime();
+        }
+    }
 
     public void SlowTime()
     {
@@ -60,7 +76,7 @@ public class TimeManipulation : PlayerControl
         {
             return;
         }
-
+        
         TimeSlowTimer();
     }
 
@@ -68,11 +84,29 @@ public class TimeManipulation : PlayerControl
     {
         if(isTimeSlowed == true)
         {
-            timeSlowTimer -= Time.unscaledDeltaTime;
+            if (unlimitedTimeSlow == false)
+            {
+                timeSlowTimer -= Time.unscaledDeltaTime;
+                
+                if (useTimeBar)
+                {
+                    HUDManager.Instance().UpdateSlowMoSliderInfo(timeSlowTimer, defaultTimeSlowDuration);
+                }
+            }
             
-            HUDManager.Instance().UpdateSlowMoSliderInfo(timeSlowTimer, defaultTimeSlowDuration);
+            if (movingStopsTimeSlow)
+            {
+                if (PlayerManager.Instance().GetPlayerMove().IsMoving)
+                {
+                    Time.timeScale = normalTimeScale;
+                }
+                else if (!PlayerManager.Instance().GetPlayerMove().IsMoving)
+                {
+                    Time.timeScale = slowTimeScale;
+                }
+            }
             
-            if(timeSlowTimer <= 0.0f)
+            if (timeSlowTimer <= 0.0f)
             {
                 NormalizeTime();
             }

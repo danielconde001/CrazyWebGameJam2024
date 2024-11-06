@@ -30,6 +30,7 @@ public class PlayerShoot : PlayerControl
     private void Shoot()
     {
         PlayerManager.Instance().CurrentlyEquippedWeapon.Fire();
+        GameManager.Instance().TimeManipulator.TimeHiccup();
         EventsManager.Instance().PlayerSpotted();
     }
 

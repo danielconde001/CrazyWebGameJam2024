@@ -136,7 +136,6 @@ public class Weapon : MonoBehaviour
             currentMagCapacity -= 1;
             GameManager.Instance().GetAudioSource().PlayOneShot(gunshotClip, 0.5f);
             ShowMuzzle();
-            GameManager.Instance().TimeManipulator.TimeHiccup();
             ShakeCamera();
             SpawnBullets();
         }

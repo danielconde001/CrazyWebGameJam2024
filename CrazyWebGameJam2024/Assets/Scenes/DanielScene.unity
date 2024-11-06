@@ -4200,6 +4200,18 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4369333525737486971, guid: 9bd8448d758ba9e4fa47fd763b50e84f, type: 3}
+      propertyPath: slowTimeOnStart
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4369333525737486971, guid: 9bd8448d758ba9e4fa47fd763b50e84f, type: 3}
+      propertyPath: unlimitedTimeSlow
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4369333525737486971, guid: 9bd8448d758ba9e4fa47fd763b50e84f, type: 3}
+      propertyPath: movingStopsTimeSlow
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4369333525737486971, guid: 9bd8448d758ba9e4fa47fd763b50e84f, type: 3}
       propertyPath: defaultTimeSlowDuration
       value: 10
       objectReference: {fileID: 0}
