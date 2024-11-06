@@ -222,5 +222,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00f1f680d9ba3304c91f68346950748c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneFader: {fileID: 0}
-  defaultTransitionDuration: 0
+  sceneFader: {fileID: 3051643767530718190}
+  defaultTransitionDuration: 1

@@ -26,6 +26,8 @@ public class SceneManager : MonoBehaviour
         instance = this;
 
         DontDestroyOnLoad(this.gameObject);
+
+        LoadSceneWithFade("Level-001");
     }
 
     public void LoadScene(int pIndex)
@@ -40,11 +42,6 @@ public class SceneManager : MonoBehaviour
 
     public void LoadSceneWithFade(string sceneName, float transitionDuration)
     {
-        if(UnityEngine.SceneManagement.SceneManager.GetSceneByName(sceneName).IsValid() == false)
-        {
-            return;
-        }
-
         if(isTransitioning == false)
         {
             isTransitioning = true;
