@@ -43,11 +43,11 @@ public class HUDManager : MonoBehaviour
     {
         if (pUseVignette)
         {
-            mainCanvas.Vignette.DOFade(1f, 1f);
+            mainCanvas.Vignette.DOFade(1f, 1f).SetUpdate(UpdateType.Normal, true);
         }
         else
         {
-            mainCanvas.Vignette.DOFade(0f, 1f);
+            mainCanvas.Vignette.DOFade(0f, 1f).SetUpdate(UpdateType.Normal, true);
         }
     }
 

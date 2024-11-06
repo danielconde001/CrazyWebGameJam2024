@@ -87,7 +87,7 @@ SpriteRenderer:
   m_SortingLayerID: -562134439
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8723185134155796973, guid: 17e5dba7c2d4da944932b5ba68fedf59, type: 3}
+  m_Sprite: {fileID: -1039219876, guid: 0653080ffb22b7443a6df6a8496a0c50, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -108,7 +108,7 @@ Animator:
   m_GameObject: {fileID: 1228692731321955010}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: b6975031a80c912438678bff8c8692d8, type: 2}
+  m_Controller: {fileID: 22100000, guid: ff3311703d120a544b771c0837398a48, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -312,6 +312,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2317471606496557220}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3975758463961710827}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &9218000175339997542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -431,6 +455,22 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6571452960099713040, guid: 2d7e9b7ccd4ed8f4c86875c6b684b3e9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6841913092151730678, guid: f016545c099b1c94d8da9d55b9e22a11, type: 3}
+    - target: {fileID: 6571452960099713040, guid: 2d7e9b7ccd4ed8f4c86875c6b684b3e9, type: 3}
+      propertyPath: m_Color.b
+      value: 0.14117648
+      objectReference: {fileID: 0}
+    - target: {fileID: 6571452960099713040, guid: 2d7e9b7ccd4ed8f4c86875c6b684b3e9, type: 3}
+      propertyPath: m_Color.g
+      value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 6571452960099713040, guid: 2d7e9b7ccd4ed8f4c86875c6b684b3e9, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9607844
+      objectReference: {fileID: 0}
     - target: {fileID: 6768528148200937729, guid: 2d7e9b7ccd4ed8f4c86875c6b684b3e9, type: 3}
       propertyPath: m_Name
       value: Enemy Shotgun
@@ -485,7 +525,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7091461912096855769, guid: 2d7e9b7ccd4ed8f4c86875c6b684b3e9, type: 3}
   m_PrefabInstance: {fileID: 7692745470968273386}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 3975758463961710827}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6258e2aab5814854593da0d77ef44d14, type: 3}
@@ -494,5 +534,10 @@ MonoBehaviour:
 --- !u!4 &657661548073384711 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7197425719630619373, guid: 2d7e9b7ccd4ed8f4c86875c6b684b3e9, type: 3}
+  m_PrefabInstance: {fileID: 7692745470968273386}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3975758463961710827 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6768528148200937729, guid: 2d7e9b7ccd4ed8f4c86875c6b684b3e9, type: 3}
   m_PrefabInstance: {fileID: 7692745470968273386}
   m_PrefabAsset: {fileID: 0}

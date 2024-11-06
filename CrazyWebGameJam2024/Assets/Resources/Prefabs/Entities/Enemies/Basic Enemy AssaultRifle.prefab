@@ -344,6 +344,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2427072360290920952}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5891923200075584089}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &721285349368345007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -471,6 +495,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 5641434598427218987, guid: f69d45a7d54835148a366da37af1883d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5324285783129583154, guid: f016545c099b1c94d8da9d55b9e22a11, type: 3}
+    - target: {fileID: 5641434598427218987, guid: f69d45a7d54835148a366da37af1883d, type: 3}
+      propertyPath: m_Color.b
+      value: 0.20000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641434598427218987, guid: f69d45a7d54835148a366da37af1883d, type: 3}
+      propertyPath: m_Color.g
+      value: 0.10980393
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641434598427218987, guid: f69d45a7d54835148a366da37af1883d, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8470589
+      objectReference: {fileID: 0}
     - target: {fileID: 7323127640513544793, guid: f69d45a7d54835148a366da37af1883d, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -485,12 +525,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4695492576315267340, guid: f69d45a7d54835148a366da37af1883d, type: 3}
   m_PrefabInstance: {fileID: 8346226375523123584}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5891923200075584089 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2456590743761720281, guid: f69d45a7d54835148a366da37af1883d, type: 3}
+  m_PrefabInstance: {fileID: 8346226375523123584}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6598953561746838268 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2902554455565489020, guid: f69d45a7d54835148a366da37af1883d, type: 3}
   m_PrefabInstance: {fileID: 8346226375523123584}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 5891923200075584089}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ae89d446a3bcd5469235170073ab934, type: 3}

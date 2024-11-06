@@ -9,12 +9,10 @@ public class EnemyWeapon : Weapon
             return;
 
         canFire = false;
-
-        ShowMuzzle();
+        
         SpawnBullets();
         
-        await Task.Delay(fireRate);
-        canFire = true;
+        fireTimer = fireRate * 0.001f;
     }
     
     protected override void SpawnBullets()

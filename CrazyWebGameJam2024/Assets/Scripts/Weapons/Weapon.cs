@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -12,19 +11,6 @@ public class Weapon : MonoBehaviour
         COUNT
     }
 
-    protected virtual void Awake()
-    {
-        weaponCollider = GetComponent<Collider2D>();
-        
-        if (center == null)
-        {
-            center = transform.Find("Center");
-        }
-        
-        if (spriteRenderer == null)
-            spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-    
     protected Collider2D weaponCollider = new Collider2D();
     public Collider2D GetCollider2D()
     {
@@ -104,12 +90,6 @@ public class Weapon : MonoBehaviour
         get => bullet;
     }
     
-    [SerializeField] protected GameObject muzzle;
-    public GameObject Muzzle
-    {
-        get => muzzle;
-    }
-    
     [SerializeField] protected SpriteRenderer spriteRenderer;
     public SpriteRenderer GetSpriteRenderer()
     {
@@ -117,6 +97,34 @@ public class Weapon : MonoBehaviour
     }
     
     protected bool canFire = true;
+    protected float fireTimer = 0f;
+    
+    protected virtual void Awake()
+    {
+        weaponCollider = GetComponent<Collider2D>();
+        
+        if (center == null)
+        {
+            center = transform.Find("Center");
+        }
+
+        if (spriteRenderer == null)
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+    }
+
+    protected void Update()
+    {
+        if (fireTimer > 0)
+        {
+            fireTimer -= Time.deltaTime;
+        }
+        else
+        {
+            canFire = true;
+        }
+    }
     
     public async virtual void Fire()
     {
@@ -135,15 +143,13 @@ public class Weapon : MonoBehaviour
         {
             currentMagCapacity -= 1;
             GameManager.Instance().GetAudioSource().PlayOneShot(gunshotClip, 0.5f);
-            ShowMuzzle();
             ShakeCamera();
             SpawnBullets();
         }
         
         HUDManager.Instance().UpdateAmmoInfo();
-        
-        await Task.Delay(fireRate);
-        canFire = true;
+
+        fireTimer = fireRate * 0.001f;
     }
 
     public void Equip()
@@ -166,13 +172,6 @@ public class Weapon : MonoBehaviour
         GetCollider2D().enabled = true;
     }
     
-    protected async void ShowMuzzle()
-    {
-        muzzle.SetActive(true);
-        await Task.Delay(100);
-        muzzle.SetActive(false);
-    }
-
     protected void ShakeCamera()
     {
         CameraShake.Instance().ShakeCamera(.5f,cameraShakeForce);

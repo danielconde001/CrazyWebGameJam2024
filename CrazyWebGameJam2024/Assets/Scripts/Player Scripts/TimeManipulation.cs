@@ -98,10 +98,12 @@ public class TimeManipulation : PlayerControl
             {
                 if (PlayerManager.Instance().GetPlayerMove().IsMoving)
                 {
+                    HUDManager.Instance().UseVignette(false);
                     Time.timeScale = normalTimeScale;
                 }
                 else if (!PlayerManager.Instance().GetPlayerMove().IsMoving)
                 {
+                    HUDManager.Instance().UseVignette(true);
                     Time.timeScale = slowTimeScale;
                 }
             }

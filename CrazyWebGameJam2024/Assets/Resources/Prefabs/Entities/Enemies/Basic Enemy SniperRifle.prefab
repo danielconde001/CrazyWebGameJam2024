@@ -312,6 +312,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6182085834482494808}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 701354830055930124}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3481308669839186825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -431,6 +455,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy SniperRifle
       objectReference: {fileID: 0}
+    - target: {fileID: 2707565667308519378, guid: a0710b90a0cf2324294364f682e47bae, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8038801788575301323, guid: f016545c099b1c94d8da9d55b9e22a11, type: 3}
+    - target: {fileID: 2707565667308519378, guid: a0710b90a0cf2324294364f682e47bae, type: 3}
+      propertyPath: m_Color.b
+      value: 0.20000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 2707565667308519378, guid: a0710b90a0cf2324294364f682e47bae, type: 3}
+      propertyPath: m_Color.g
+      value: 0.10980393
+      objectReference: {fileID: 0}
+    - target: {fileID: 2707565667308519378, guid: a0710b90a0cf2324294364f682e47bae, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8470589
+      objectReference: {fileID: 0}
     - target: {fileID: 3586154390601180334, guid: a0710b90a0cf2324294364f682e47bae, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -492,12 +532,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0710b90a0cf2324294364f682e47bae, type: 3}
+--- !u!1 &701354830055930124 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 541182467245130642, guid: a0710b90a0cf2324294364f682e47bae, type: 3}
+  m_PrefabInstance: {fileID: 1024881273906936478}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2064390802669150189 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1341840047665685875, guid: a0710b90a0cf2324294364f682e47bae, type: 3}
   m_PrefabInstance: {fileID: 1024881273906936478}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 701354830055930124}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ae89d446a3bcd5469235170073ab934, type: 3}
