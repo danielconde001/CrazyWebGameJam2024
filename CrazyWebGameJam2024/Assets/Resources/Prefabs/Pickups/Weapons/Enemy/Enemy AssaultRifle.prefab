@@ -106,7 +106,7 @@ MonoBehaviour:
   center: {fileID: 3761695099668459490}
   type: 2
   defaultLocalPosition: {x: 0, y: 0, z: 0.4}
-  damage: 1
+  damage: 35
   fireRate: 80
   canPenetrate: 0
   maxMagCapacity: -1

@@ -51,6 +51,8 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] protected float searchDuration;
     [SerializeField] protected List<Transform> patrolPoints;
 
+    
+    
     protected Sequence searchSequence;
     protected Transform rootTransform;
     protected Transform playerTransform; 
@@ -134,7 +136,7 @@ public class EnemyAI : MonoBehaviour
                     navMeshAgent.ResetPath();
                     timer = firstAttackDelay;
                     isPlayerSpotted = true;
-
+                    
                     break;
                 }
                 case EnemyState.CHASE:
@@ -383,14 +385,22 @@ public class EnemyAI : MonoBehaviour
                         Quaternion rot = Quaternion.LookRotation((playerPosOffset - headPivot.position).normalized, Vector3.back);
                         headPivot.rotation = Quaternion.RotateTowards(headPivot.rotation, rot, turnSpeed * Time.deltaTime);
                         
-                        RaycastHit2D raycastHit2D = Physics2D.Raycast(headPivot.position, headPivot.forward, aggroViewDistance, detectionLayers);
-                        if(raycastHit2D.collider != null)
+                        RaycastHit2D[] raycastHit2D = Physics2D.RaycastAll(headPivot.position, headPivot.forward, aggroViewDistance, detectionLayers);
+
+                        for (int i = 0; i < raycastHit2D.Length; i++)
                         {
-                            if(raycastHit2D.collider.gameObject.tag == playerTag)
+                            if (raycastHit2D[i].collider.gameObject.CompareTag(playerTag) == true)
                             {
-                                selfWeapon.Fire();
+                                if(raycastHit2D[i].collider != null)
+                                {
+                                    if(raycastHit2D[i].collider.gameObject.tag == playerTag)
+                                    {
+                                        selfWeapon.Fire();
+                                    }
+                                }
                             }
                         }
+                        
                     }
                 }
 

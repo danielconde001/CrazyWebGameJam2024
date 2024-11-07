@@ -35,6 +35,7 @@ public class ShotgunWeapon : Weapon
             newBulletDir = Vector2.ClampMagnitude(newBulletDir, 1);
             
             spawnedBullet.SetBulletDirection(newBulletDir);
+            spawnedBullet.SetDamage(damage);
         }
         
     }

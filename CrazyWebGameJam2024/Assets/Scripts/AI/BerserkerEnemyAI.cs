@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class BerserkerEnemyAI : EnemyAI
 {
+    [SerializeField] protected int damage;
+    
     public override EnemyState CurrentEnemyState 
     { 
         get => base.CurrentEnemyState;
@@ -134,7 +136,7 @@ public class BerserkerEnemyAI : EnemyAI
     {
         if(other.gameObject.tag == playerTag)
         {
-            other.gameObject.GetComponent<Health>().DeductHealth(1);
+            other.gameObject.GetComponent<Health>().DeductHealth(damage);
         }
     }
 

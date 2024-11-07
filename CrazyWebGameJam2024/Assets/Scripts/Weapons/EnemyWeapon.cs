@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class EnemyWeapon : Weapon
 {
+    
+    
     public async override void Fire()
     {
         if (canFire == false)
@@ -29,5 +31,6 @@ public class EnemyWeapon : Weapon
         Vector2 newBulletDir = center.right;
         newBulletDir = Vector2.ClampMagnitude(newBulletDir, 1);
         spawnedBullet.SetBulletDirection(newBulletDir);
+        spawnedBullet.SetDamage(damage);
     }
 }

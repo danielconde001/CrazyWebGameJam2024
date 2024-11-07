@@ -396,6 +396,7 @@ MonoBehaviour:
   chaseStopDelay: 1.5
   searchDuration: 3
   patrolPoints: []
+  damage: 100
 --- !u!195 &2661031035565820609
 NavMeshAgent:
   m_ObjectHideFlags: 0

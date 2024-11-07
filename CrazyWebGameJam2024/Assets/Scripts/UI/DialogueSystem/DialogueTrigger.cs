@@ -26,7 +26,7 @@ public class Dialogue
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
- 
+    
     public void TriggerDialogue()
     {
         HUDManager.Instance().DialogueSystem.StartDialogue(dialogue);

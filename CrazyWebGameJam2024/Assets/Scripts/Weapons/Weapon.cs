@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Threading.Tasks;
 
 public class Weapon : MonoBehaviour
 {
@@ -114,7 +115,7 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    protected void Update()
+    protected virtual void Update()
     {
         if (fireTimer > 0)
         {
@@ -125,7 +126,7 @@ public class Weapon : MonoBehaviour
             canFire = true;
         }
     }
-    
+
     public async virtual void Fire()
     {
         if (canFire == false)
@@ -143,12 +144,13 @@ public class Weapon : MonoBehaviour
         {
             currentMagCapacity -= 1;
             GameManager.Instance().GetAudioSource().PlayOneShot(gunshotClip, 0.5f);
+            
             ShakeCamera();
             SpawnBullets();
         }
         
         HUDManager.Instance().UpdateAmmoInfo();
-
+        
         fireTimer = fireRate * 0.001f;
     }
 
@@ -191,6 +193,7 @@ public class Weapon : MonoBehaviour
         Vector2 newBulletDir = PlayerManager.Instance().GetPlayerAim().GetAimDirection().normalized;
         newBulletDir = Vector2.ClampMagnitude(newBulletDir, 1);
         spawnedBullet.SetBulletDirection(newBulletDir);
+        spawnedBullet.SetDamage(damage);
         spawnedBullet.SetCanPenetrate(canPenetrate);
     }
 }

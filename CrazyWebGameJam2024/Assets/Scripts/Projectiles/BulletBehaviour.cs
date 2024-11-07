@@ -8,6 +8,7 @@ public class BulletBehaviour : MonoBehaviour
     private Vector2 bulletDirection = Vector2.right;
     private bool canPenetrate = false;
     private Rigidbody2D selfRigidbody2D;
+    private int damage = 1;
 
     private void Awake()
     {
@@ -21,13 +22,17 @@ public class BulletBehaviour : MonoBehaviour
 
     private void Update()
     {
-        //transform.position += (Vector3)bulletDirection * bulletSpeed * Time.deltaTime;
         selfRigidbody2D.linearVelocity = bulletDirection * bulletSpeed * Time.fixedDeltaTime;
     }
 
     public void SetBulletDirection(Vector2 newDirection)
     {
         bulletDirection = newDirection;
+    }
+
+    public void SetDamage(int newDamage)
+    {
+        damage = newDamage;
     }
 
     public void SetCanPenetrate(bool _canPenetrate)
@@ -39,13 +44,13 @@ public class BulletBehaviour : MonoBehaviour
     {
         if(collision.tag == "Enemy Shield" && enemyTag == "Enemy")
         {
-            collision.GetComponent<EnemyShield>().ShieldHit(canPenetrate);
+            collision.GetComponent<EnemyShield>().ShieldHit(canPenetrate, damage);
             Destroy(gameObject);
         }
 
         else if (collision.tag == enemyTag)
         {
-            collision.GetComponent<Health>().DeductHealth(1);
+            collision.GetComponent<Health>().DeductHealth(damage);
             Destroy(gameObject);
         }
 

@@ -3,39 +3,38 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private uint maxHealth;
-    private uint currentHealth;
+    [SerializeField] private int maxHealth;
+    private int currentHealth;
 
     [SerializeField] private UnityEvent onHurtEvent;
     [SerializeField] private UnityEvent onDeathEvent;
-
+    
+    private bool isDead = false;
+    
     private void Awake()
     {
         currentHealth = maxHealth;
     }
 
-    public uint GetCurrentHealth()
+    public int GetCurrentHealth()
     {
         return currentHealth;
     }
 
-    public void DeductHealth(uint damage)
+    public void DeductHealth(int damage)
     {
-        if (currentHealth == 0) 
-            return;
+        if (isDead) return;
+        
+        currentHealth -= damage;
 
+        if (currentHealth <= 0)
+        {
+            onDeathEvent.Invoke();
+            isDead = true;
+        }
         else
         {
-            currentHealth -= damage;
-
-            if (currentHealth == 0)
-            {
-                onDeathEvent.Invoke();
-            }
-            else
-            {
-                onHurtEvent.Invoke();
-            }
+            onHurtEvent.Invoke();
         }
     }
 }

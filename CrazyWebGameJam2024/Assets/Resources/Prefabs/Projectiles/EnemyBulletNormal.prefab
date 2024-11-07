@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyTag: Player
-  bulletSpeed: 1000
+  bulletSpeed: 550
 --- !u!96 &3958979918199384745
 TrailRenderer:
   serializedVersion: 3

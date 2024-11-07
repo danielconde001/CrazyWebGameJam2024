@@ -45,7 +45,7 @@ public class DialogueSystem : MonoBehaviour
         characterName.text = dialogue.dialogueLines[0].character.name;
         
         dialogueBox.gameObject.SetActive(true);
-        anchor.DOMoveY(0f, 1f).OnComplete(() =>
+        anchor.DOMoveY(0f, 1f).SetUpdate(UpdateType.Normal, true).OnComplete(() =>
         {
             DisplayNextDialogueLine();
         });
@@ -76,14 +76,14 @@ public class DialogueSystem : MonoBehaviour
         {
             dialogueArea.text += letter;
             audioSource.PlayOneShot(dialogueLine.character.dialogueClip, 1f);
-            yield return new WaitForSeconds(typingSpeed);
+            yield return new WaitForSecondsRealtime(typingSpeed);
         }
     }
  
     void EndDialogue()
     {
         isDialogueActive = false;
-        anchor.DOMoveY(Screen.height, .5f).OnComplete(() =>
+        anchor.DOMoveY(Screen.height, .5f).SetUpdate(UpdateType.Normal, true).OnComplete(() =>
         {
             dialogueBox.gameObject.SetActive(false);
             PlayerManager.Instance().RegainPlayerControl();

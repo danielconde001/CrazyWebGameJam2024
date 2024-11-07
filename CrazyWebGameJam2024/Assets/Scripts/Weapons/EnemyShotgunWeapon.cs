@@ -14,6 +14,8 @@ public class EnemyShotgunWeapon : Weapon
     {
         get => pelletsPerShot;
     }
+    
+    
 
     public async override void Fire()
     {
@@ -48,6 +50,7 @@ public class EnemyShotgunWeapon : Weapon
             newBulletDir = Vector2.ClampMagnitude(newBulletDir, 1);
             
             spawnedBullet.SetBulletDirection(newBulletDir);
+            spawnedBullet.SetDamage(damage);
         }
         
     }

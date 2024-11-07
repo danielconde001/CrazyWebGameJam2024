@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using DG.Tweening;
+using NUnit.Framework.Constraints;
 
 public class TimeManipulation : PlayerControl
 {
@@ -20,7 +21,8 @@ public class TimeManipulation : PlayerControl
     private Tween timeSlowTween;
     private bool isTimeSlowed = false;
     private float timeSlowTimer = 0.0f;
-
+    private bool isTimeHiccuping = false;
+    
     private void Start()
     {
         if (slowTimeOnStart)
@@ -39,7 +41,9 @@ public class TimeManipulation : PlayerControl
         if(timeSlowDuration > 0.0f)
         {
             timeSlowTimer = timeSlowDuration;
-            timeSlowTween = DOTween.To(()=> Time.timeScale, x=> Time.timeScale = x, slowTimeScale, timeSlowTransitionDuration).SetUpdate(UpdateType.Normal, true).SetEase(Ease.OutCirc);
+            timeSlowTween =
+                DOTween.To(() => Time.timeScale, x => Time.timeScale = x, slowTimeScale, timeSlowTransitionDuration)
+                    .SetUpdate(UpdateType.Normal, true).SetEase(Ease.OutCirc);
             HUDManager.Instance().UseVignette(true);
             isTimeSlowed = true;
         }
@@ -59,15 +63,19 @@ public class TimeManipulation : PlayerControl
     {
         if(isTimeSlowed == true)
         {
+            isTimeHiccuping = true;
             Time.timeScale = normalTimeScale;
-
             if(timeSlowTween != null)
             {
                 timeSlowTween.Kill();
             }
 
-            timeSlowTween = DOTween.To(()=> Time.timeScale, x=> Time.timeScale = x, slowTimeScale, timeHiccupTransitionDuration).SetUpdate(UpdateType.Normal, true).SetEase(Ease.OutQuad);
+            timeSlowTween = DOTween
+                .To(() => Time.timeScale, x => Time.timeScale = x, slowTimeScale, timeHiccupTransitionDuration)
+                .SetUpdate(UpdateType.Normal, true).SetEase(Ease.OutQuad)
+                .OnComplete(() => { isTimeHiccuping = false; });
         }
+        
     }
 
     private void Update()
@@ -82,12 +90,12 @@ public class TimeManipulation : PlayerControl
 
     private void TimeSlowTimer()
     {
-        if(isTimeSlowed == true)
+        if (isTimeSlowed == true)
         {
             if (unlimitedTimeSlow == false)
             {
                 timeSlowTimer -= Time.unscaledDeltaTime;
-                
+
                 if (useTimeBar)
                 {
                     HUDManager.Instance().UpdateSlowMoSliderInfo(timeSlowTimer, defaultTimeSlowDuration);
@@ -96,12 +104,12 @@ public class TimeManipulation : PlayerControl
             
             if (movingStopsTimeSlow)
             {
-                if (PlayerManager.Instance().GetPlayerMove().IsMoving)
+                if (PlayerManager.Instance().GetPlayerMove().IsMoving) 
                 {
                     HUDManager.Instance().UseVignette(false);
                     Time.timeScale = normalTimeScale;
                 }
-                else if (!PlayerManager.Instance().GetPlayerMove().IsMoving)
+                else if (!PlayerManager.Instance().GetPlayerMove().IsMoving && !isTimeHiccuping)
                 {
                     HUDManager.Instance().UseVignette(true);
                     Time.timeScale = slowTimeScale;
