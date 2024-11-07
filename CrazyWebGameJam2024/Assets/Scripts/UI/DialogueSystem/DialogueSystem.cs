@@ -56,7 +56,6 @@ public class DialogueSystem : MonoBehaviour
         if (lines.Count == 0)
         {
             EndDialogue();
-            
             return;
         }
  
@@ -64,7 +63,7 @@ public class DialogueSystem : MonoBehaviour
  
         characterIcon.sprite = currentLine.character.icon;
         characterName.text = currentLine.character.name;
- 
+        
         StopAllCoroutines();
  
         StartCoroutine(TypeSentence(currentLine));
@@ -82,13 +81,13 @@ public class DialogueSystem : MonoBehaviour
     }
  
     void EndDialogue()
-    {
-        
+    { 
         anchor.DOMoveY(Screen.height, .3f).SetUpdate(UpdateType.Normal, true).OnComplete(() =>
         {
             dialogueBox.gameObject.SetActive(false);
             isDialogueActive = false;
             PlayerManager.Instance().RegainPlayerControl();
+            
         });
     }
 }
