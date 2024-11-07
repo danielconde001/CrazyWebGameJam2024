@@ -25,18 +25,18 @@ public class CameraShake : MonoBehaviour
 
     private void OnShake(float pDuration, float pStrength)
     {
-        transform.DOShakePosition(pDuration, pStrength).OnComplete(() => ReturnToDefaultPosition());
-        transform.DOShakeRotation(pDuration, pStrength).OnComplete(() => ReturnToDefaultRotation());
+        transform.DOShakePosition(pDuration, pStrength).SetUpdate(UpdateType.Normal, true).OnComplete(() => ReturnToDefaultPosition());
+        transform.DOShakeRotation(pDuration, pStrength).SetUpdate(UpdateType.Normal, true).OnComplete(() => ReturnToDefaultRotation());
     }
     
     private void ReturnToDefaultPosition()
     {
-        DOTween.To(()=> transform.position , x=> transform.position = x, defaultPosition, .1f);
+        DOTween.To(()=> transform.position , x=> transform.position = x, defaultPosition, .1f).SetUpdate(UpdateType.Normal, true);
     }
     
     private void ReturnToDefaultRotation()
     {
-        DOTween.To(()=> transform.rotation , x=> transform.rotation = x, defaultRotation, .1f);
+        DOTween.To(()=> transform.rotation , x=> transform.rotation = x, defaultRotation, .1f).SetUpdate(UpdateType.Normal, true);
     }
     
     public void ShakeCamera(float pDuration, float pStrength)

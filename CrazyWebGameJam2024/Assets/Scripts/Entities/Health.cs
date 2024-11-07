@@ -3,15 +3,15 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private int maxHealth;
-    private int currentHealth;
+    [SerializeField] protected int maxHealth;
+    protected int currentHealth;
 
-    [SerializeField] private UnityEvent onHurtEvent;
-    [SerializeField] private UnityEvent onDeathEvent;
+    [SerializeField] protected UnityEvent onHurtEvent;
+    [SerializeField] protected UnityEvent onDeathEvent;
     
-    private bool isDead = false;
+    protected bool isDead = false;
     
-    private void Awake()
+    protected void Awake()
     {
         currentHealth = maxHealth;
     }
@@ -20,13 +20,18 @@ public class Health : MonoBehaviour
     {
         return currentHealth;
     }
-
-    public void DeductHealth(int damage)
+    
+    public int GetMaxHealth()
+    {
+        return maxHealth;
+    }
+    
+    public virtual void DeductHealth(int damage)
     {
         if (isDead) return;
-        
-        currentHealth -= damage;
 
+        currentHealth -= damage;
+        
         if (currentHealth <= 0)
         {
             onDeathEvent.Invoke();

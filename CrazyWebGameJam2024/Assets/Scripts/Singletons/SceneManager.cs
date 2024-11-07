@@ -10,7 +10,7 @@ public class SceneManager : MonoBehaviour
     {
         if (instance == null)
         {
-            GameObject sceneManager = Instantiate(Resources.Load("Prefabs/Singletons/MusicManager", typeof(GameObject)) as GameObject);
+            GameObject sceneManager = Instantiate(Resources.Load("Prefabs/Singletons/SceneManager", typeof(GameObject)) as GameObject);
             instance = sceneManager.GetComponent<SceneManager>();
         }
         return instance;
@@ -49,6 +49,12 @@ public class SceneManager : MonoBehaviour
         }
     }
 
+    public void LoadCurrentScene()
+    {
+        int sceneIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+        LoadScene(sceneIndex);
+    }
+
     private IEnumerator LoadSceneWithFadeAsync(string sceneName, float transitionDuration)
     {
         AsyncOperation asyncLoad = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneName, UnityEngine.SceneManagement.LoadSceneMode.Single);
@@ -57,7 +63,7 @@ public class SceneManager : MonoBehaviour
         {
             yield return null;
         }
-
+        
         sceneFader.DOColor(Color.clear, transitionDuration / 2.0f).SetEase(Ease.Linear).OnComplete(()=>{
             isTransitioning = true;
         });

@@ -5,6 +5,8 @@ public class PlayerKillable : Killable
     {
         isKilled = true;
         base.Death();
+        GameManager.Instance().TimeManipulator.NormalizeTime();
+        GameManager.Instance().GameOver();
     }
 
     public bool IsKilled()

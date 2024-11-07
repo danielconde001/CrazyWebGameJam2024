@@ -16,7 +16,6 @@ public class AttackIndicatorBehaviour : MonoBehaviour
         if (ai.CurrentEnemyState == EnemyState.ATTACK)
         {
             bullseyeIcon.SetActive(true);
-            Debug.Log("Yeet");
         }
         else if (ai.CurrentEnemyState != EnemyState.ATTACK)
             bullseyeIcon.SetActive(false);

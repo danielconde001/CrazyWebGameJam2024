@@ -95,4 +95,9 @@ public class GameManager : MonoBehaviour
 
         crosshair.transform.position = newPosition;
     }
+
+    public void GameOver()
+    {
+        HUDManager.Instance().GameOverDisplayer.Display();
+    }
 }

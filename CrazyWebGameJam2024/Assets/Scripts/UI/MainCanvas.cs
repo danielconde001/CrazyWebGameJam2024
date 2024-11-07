@@ -17,4 +17,7 @@ public class MainCanvas : MonoBehaviour
     
     [SerializeField] private Slider slowMoSlider;
     public Slider SlowMoSlider { get => slowMoSlider; }
+    
+    [SerializeField] private Slider healthBar;
+    public Slider HealthBar { get => healthBar; }
 }

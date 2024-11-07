@@ -56,6 +56,7 @@ public class DialogueSystem : MonoBehaviour
         if (lines.Count == 0)
         {
             EndDialogue();
+            isDialogueActive = false;
             return;
         }
  

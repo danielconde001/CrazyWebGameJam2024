@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using DG.Tweening;
+using Unity.VisualScripting;
 
 public class HUDManager : MonoBehaviour
 {
@@ -20,13 +22,14 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private GameObject dialogueSystemObject;
     private DialogueSystem dialogueSystem;
     public DialogueSystem DialogueSystem { get => dialogueSystem; }
-
+    
+    [SerializeField] private GameObject gameOverDisplayerObject;
+    private GameOverDisplayer gameOverDisplayer;
+    public GameOverDisplayer GameOverDisplayer { get => gameOverDisplayer; }
+    
     [SerializeField] private GameObject audioManagerObject;
     private AudioManager audioManager;
     public AudioManager AudioManager { get => audioManager; }
-
-    private Vector3 ammoTextDefaultPosition;
-    private RectTransform ammoTextRectTransform;
     
     private void Awake()
     {
@@ -34,11 +37,15 @@ public class HUDManager : MonoBehaviour
         mainCanvas = mainCanvasGameObject.GetComponent<MainCanvas>();
         dialogueSystem = dialogueSystemObject.GetComponent<DialogueSystem>();
         audioManager = audioManagerObject.GetComponent<AudioManager>();
-
-        ammoTextRectTransform = mainCanvas.AmmoText.GetComponent<RectTransform>();
-        ammoTextDefaultPosition = ammoTextRectTransform.localPosition;
+        gameOverDisplayer = gameOverDisplayerObject.GetComponent<GameOverDisplayer>();
     }
-    
+
+    private void Start()
+    {
+        mainCanvas.HealthBar.value 
+            = ((float)PlayerManager.Instance().GetPlayerHealth().GetCurrentHealth() / (float)PlayerManager.Instance().GetPlayerHealth().GetMaxHealth());
+    }
+
     public void UseVignette(bool pUseVignette)
     {
         if (pUseVignette)
@@ -86,6 +93,17 @@ public class HUDManager : MonoBehaviour
         if (currentSliderValue <= 0)
         {
             mainCanvas.SlowMoSlider.gameObject.SetActive(false);
+        }
+    }
+    
+    public void UpdateHealthBarInfo()
+    {
+        if (PlayerManager.Instance().CurrentlyEquippedWeapon != null)
+        {
+            int currentHealth = PlayerManager.Instance().GetPlayerHealth().GetCurrentHealth();
+            int maxHealth = PlayerManager.Instance().GetPlayerHealth().GetMaxHealth();
+
+            mainCanvas.HealthBar.value = ((float)currentHealth / (float)maxHealth);
         }
     }
 }

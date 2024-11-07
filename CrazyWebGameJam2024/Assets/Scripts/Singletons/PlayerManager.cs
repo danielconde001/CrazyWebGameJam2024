@@ -81,6 +81,15 @@ public class PlayerManager : MonoBehaviour
         return playerMove;
     }
     
+    [SerializeField] private Health playerHealth;
+    public Health GetPlayerHealth()
+    {
+        if (playerHealth == null)
+            playerHealth = player.GetComponent<Health>();
+        
+        return playerHealth;
+    }
+    
     private List<PlayerControl> playerControls = new List<PlayerControl>();
     
     public void ReplaceEquippedGunWith(Weapon pReplacementWeapon)
@@ -129,6 +138,11 @@ public class PlayerManager : MonoBehaviour
         {
             playerMove = player.GetComponent<PlayerMove>();
             playerControls.Add(playerMove);
+        }
+
+        if (playerHealth == null)
+        {
+            playerHealth = player.GetComponent<Health>();
         }
     }
 
