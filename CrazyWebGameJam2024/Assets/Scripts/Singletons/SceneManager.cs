@@ -25,7 +25,7 @@ public class SceneManager : MonoBehaviour
     {
         instance = this;
 
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(this.gameObject);
     }
 
     public void LoadScene(int pIndex)
