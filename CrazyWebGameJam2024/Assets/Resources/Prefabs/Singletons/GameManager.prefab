@@ -97,8 +97,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4276736552516690584}
   - component: {fileID: 7284468875689016703}
-  - component: {fileID: 515778993674704215}
   - component: {fileID: 4369333525737486971}
+  - component: {fileID: 515778993674704215}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -148,7 +148,33 @@ MonoBehaviour:
   enemyPrefab: {fileID: 8517496756415737315, guid: dd807c17971e9e940b34a3a9a3e6aee4, type: 3}
   crosshair: {fileID: 7768053757640277823}
   spawnOnStart: 1
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 515778993674704215}
+  levelType: 0
+  killCountGoal: 1
+  survivalTimeGoal: 30
+  hasIntro: 0
+  introDialogue: {fileID: 0}
+--- !u!114 &4369333525737486971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8879854370198302515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af573e4d21b29914da814b3c61904bee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultTimeSlowDuration: 10
+  timeSlowTransitionDuration: 1
+  timeHiccupTransitionDuration: 0.5
+  slowTimeScale: 0.001
+  normalTimeScale: 1
+  unlimitedTimeSlow: 1
+  slowTimeOnStart: 1
+  movingStopsTimeSlow: 1
+  useTimeBar: 0
 --- !u!82 &515778993674704215
 AudioSource:
   m_ObjectHideFlags: 0
@@ -246,24 +272,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4369333525737486971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8879854370198302515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af573e4d21b29914da814b3c61904bee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultTimeSlowDuration: 0
-  timeSlowTransitionDuration: 0
-  timeHiccupTransitionDuration: 0
-  slowTimeScale: 0
-  normalTimeScale: 0
-  unlimitedTimeSlow: 0
-  slowTimeOnStart: 0
-  movingStopsTimeSlow: 0
-  useTimeBar: 1

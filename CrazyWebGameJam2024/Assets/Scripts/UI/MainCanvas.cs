@@ -20,4 +20,7 @@ public class MainCanvas : MonoBehaviour
     
     [SerializeField] private Slider healthBar;
     public Slider HealthBar { get => healthBar; }
+    
+    [SerializeField] private CountdownTimer countdownTimer;
+    public CountdownTimer CountdownTimer { get => countdownTimer; }
 }

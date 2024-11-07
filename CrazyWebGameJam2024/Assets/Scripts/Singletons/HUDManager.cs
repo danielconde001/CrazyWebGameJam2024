@@ -24,8 +24,12 @@ public class HUDManager : MonoBehaviour
     public DialogueSystem DialogueSystem { get => dialogueSystem; }
     
     [SerializeField] private GameObject gameOverDisplayerObject;
-    private GameOverDisplayer gameOverDisplayer;
-    public GameOverDisplayer GameOverDisplayer { get => gameOverDisplayer; }
+    private GameOverDisplayer gameOverDisplayerDisplayer;
+    public GameOverDisplayer GameOverDisplayerDisplayer { get => gameOverDisplayerDisplayer; }
+    
+    [SerializeField] private GameObject levelCompleteDisplayerObject;
+    private LevelCompleteDisplayer levelCompleteDisplayer;
+    public LevelCompleteDisplayer LevelCompleteDisplayer { get => levelCompleteDisplayer; }
     
     [SerializeField] private GameObject audioManagerObject;
     private AudioManager audioManager;
@@ -37,7 +41,8 @@ public class HUDManager : MonoBehaviour
         mainCanvas = mainCanvasGameObject.GetComponent<MainCanvas>();
         dialogueSystem = dialogueSystemObject.GetComponent<DialogueSystem>();
         audioManager = audioManagerObject.GetComponent<AudioManager>();
-        gameOverDisplayer = gameOverDisplayerObject.GetComponent<GameOverDisplayer>();
+        gameOverDisplayerDisplayer = gameOverDisplayerObject.GetComponent<GameOverDisplayer>();
+        levelCompleteDisplayer = levelCompleteDisplayerObject.GetComponent<LevelCompleteDisplayer>();
     }
 
     private void Start()
@@ -105,5 +110,11 @@ public class HUDManager : MonoBehaviour
 
             mainCanvas.HealthBar.value = ((float)currentHealth / (float)maxHealth);
         }
+    }
+
+    public void StartCountdownTimer(float seconds)
+    {
+        mainCanvas.CountdownTimer.gameObject.SetActive(true);
+        mainCanvas.CountdownTimer.StartTime(seconds);
     }
 }

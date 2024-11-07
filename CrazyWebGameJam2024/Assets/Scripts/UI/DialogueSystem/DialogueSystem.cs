@@ -45,7 +45,7 @@ public class DialogueSystem : MonoBehaviour
         characterName.text = dialogue.dialogueLines[0].character.name;
         
         dialogueBox.gameObject.SetActive(true);
-        anchor.DOMoveY(0f, 1f).SetUpdate(UpdateType.Normal, true).OnComplete(() =>
+        anchor.DOMoveY(0f, .3f).SetUpdate(UpdateType.Normal, true).OnComplete(() =>
         {
             DisplayNextDialogueLine();
         });
@@ -56,7 +56,7 @@ public class DialogueSystem : MonoBehaviour
         if (lines.Count == 0)
         {
             EndDialogue();
-            isDialogueActive = false;
+            
             return;
         }
  
@@ -83,10 +83,11 @@ public class DialogueSystem : MonoBehaviour
  
     void EndDialogue()
     {
-        isDialogueActive = false;
-        anchor.DOMoveY(Screen.height, .5f).SetUpdate(UpdateType.Normal, true).OnComplete(() =>
+        
+        anchor.DOMoveY(Screen.height, .3f).SetUpdate(UpdateType.Normal, true).OnComplete(() =>
         {
             dialogueBox.gameObject.SetActive(false);
+            isDialogueActive = false;
             PlayerManager.Instance().RegainPlayerControl();
         });
     }

@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 8406649688132950211}
   - component: {fileID: 621794800618694422}
   - component: {fileID: 97003508692301509}
-  - component: {fileID: 6722594358520256539}
+  - component: {fileID: -4884675488003182596}
   - component: {fileID: 4627617300031253430}
   - component: {fileID: 721285349368345007}
   - component: {fileID: 2502892903286213935}
@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hurtColor: {r: 1, g: 0.2784314, b: 0.2784314, a: 1}
---- !u!114 &6722594358520256539
+--- !u!114 &-4884675488003182596
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -275,7 +275,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6572113948411907715}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fef17ea50046b5439aee180340839f0, type: 3}
+  m_Script: {fileID: 11500000, guid: d8b696e5a53f5444cb709c1dabf7da83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &4627617300031253430
@@ -309,8 +309,8 @@ MonoBehaviour:
   onDeathEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6722594358520256539}
-        m_TargetAssemblyTypeName: Killable, Assembly-CSharp
+      - m_Target: {fileID: -4884675488003182596}
+        m_TargetAssemblyTypeName: EnemyKillable, Assembly-CSharp
         m_MethodName: Death
         m_Mode: 1
         m_Arguments:

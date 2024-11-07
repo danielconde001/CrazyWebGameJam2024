@@ -251,6 +251,8 @@ public class EnemyAI : MonoBehaviour
 
     protected virtual void Update()
     {
+        if (GameManager.Instance().HasLevelStarted() == false) return;
+        
         BasePivotFix();
 
         if(PlayerManager.Instance().PlayerIsDead() == true && canDetect == true)
