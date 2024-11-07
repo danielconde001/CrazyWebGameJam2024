@@ -109,6 +109,8 @@ public class BerserkerEnemyAI : EnemyAI
 
     protected override void Update()
     {
+        if (GameManager.Instance().HasLevelStarted() == false) return;
+        
         BasePivotFix();
 
         if(PlayerManager.Instance().PlayerIsDead() == true && canDetect == true)
