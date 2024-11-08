@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<Transform> spawnPoints = new List<Transform>();
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private GameObject crosshair;
-    [SerializeField] private bool spawnOnStart = true;
     [SerializeField] private AudioSource audioSource;
     private TimeManipulation timeManipulator;
     
@@ -80,9 +79,6 @@ public class GameManager : MonoBehaviour
         {
             StartLevel();
         }
-
-        if (spawnOnStart)
-            StartCoroutine(StartSpawningCoroutine());
     }
 
     private void Update()
@@ -103,13 +99,13 @@ public class GameManager : MonoBehaviour
         if (levelType == LevelType.SURVIVAL)
         {
             HUDManager.Instance().StartCountdownTimer(survivalTimeGoal);
+            StartSpawning();
         }
     }
 
-    public void StartSpawning()
-    { 
-        if (!spawnOnStart)
-            StartCoroutine(StartSpawningCoroutine());
+    private void StartSpawning()
+    {
+        StartCoroutine(StartSpawningCoroutine());
     }
     
     private IEnumerator StartSpawningCoroutine()
@@ -120,7 +116,7 @@ public class GameManager : MonoBehaviour
             float rnd = Random.Range(minTimer, maxTimer);
             yield return new WaitForSeconds(rnd);
 
-            if (PlayerManager.Instance().PlayerIsDead())
+            if (PlayerManager.Instance().PlayerIsDead() || levelFinished || gameOver)
             {
                 yield break;
             }
@@ -183,7 +179,7 @@ public class GameManager : MonoBehaviour
         }
         else if (levelType == LevelType.SURVIVAL)
         {
-            if (currentSurvivalTimer >= 0f)
+            if (currentSurvivalTimer > 0f)
             {
                 return;
             }
@@ -196,6 +192,8 @@ public class GameManager : MonoBehaviour
 
     public void AddKillCount(uint addValue = 1)
     {
+        if (levelType != LevelType.NORMAL) return;
+        
         currentKillCount += addValue;
         CheckLevelGoalStatus();
     }
