@@ -50,8 +50,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] protected float chaseStopDelay;
     [SerializeField] protected float searchDuration;
     [SerializeField] protected List<Transform> patrolPoints;
-
-    
+    [SerializeField] protected List<AudioClip> enemyDeathSFXList;    
     
     protected Sequence searchSequence;
     protected Transform rootTransform;
@@ -214,6 +213,7 @@ public class EnemyAI : MonoBehaviour
             searchSequence.Kill();
         }
 
+        AudioManager.Instance().PlaySFX(enemyDeathSFXList[Random.Range(0, enemyDeathSFXList.Count)], 0.25f);
         selfCapsuleCollider.enabled = false;
         isAIStopped = true;
         navMeshAgent.isStopped = true;

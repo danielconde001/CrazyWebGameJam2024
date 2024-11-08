@@ -37,15 +37,15 @@ public class AudioManager : MonoBehaviour
         soundOptionsPanel.SetActive(false);
     }
 
-    public void UpdateBGMVolume(float _BGMvolume)
+    public void UpdateBGMVolume()
     {
-        BGMVolume = _BGMvolume;
+        BGMVolume = BGMVolumeSlider.value;
         BGMAudioSource.volume = BGMVolume;
     }
 
-    public void UpdateSFXVolume(float _SFXvolume)
+    public void UpdateSFXVolume()
     {
-        SFXVolume = _SFXvolume;
+        SFXVolume = SFXVolumeSlider.value;
         SFXAudioSource.volume = SFXVolume;
     }
 
@@ -88,7 +88,12 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySFX(AudioClip audioClip)
     {
-        SFXAudioSource.PlayOneShot(audioClip);
+        PlaySFX(audioClip, 1.0f);
+    }
+
+    public void PlaySFX(AudioClip audioClip, float volumeScale)
+    {
+        SFXAudioSource.PlayOneShot(audioClip, volumeScale);
     }
     
     private void Awake()
@@ -103,7 +108,10 @@ public class AudioManager : MonoBehaviour
 
     private void GetSavedVolumes()
     {
-        UpdateBGMVolume(PlayerPrefs.GetFloat("SAVE_BGMVolume", 1.0f));
-        UpdateSFXVolume(PlayerPrefs.GetFloat("SAVE_SFXVolume", 1.0f));
+        BGMVolumeSlider.value = PlayerPrefs.GetFloat("SAVE_BGMVolume", 0.25f);
+        SFXVolumeSlider.value = PlayerPrefs.GetFloat("SAVE_SFXVolume", 0.5f);
+
+        UpdateBGMVolume();
+        UpdateSFXVolume();
     }
 }

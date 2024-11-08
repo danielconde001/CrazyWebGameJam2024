@@ -146,7 +146,7 @@ MonoBehaviour:
   gunshotClip: {fileID: 8300000, guid: b078305d4980b1141b83f22a83f91a37, type: 3}
   emptyMagClip: {fileID: 8300000, guid: 24c22b6c7fd8df645914244c58bf5eba, type: 3}
   bullet: {fileID: 8406151069148535810, guid: 43394ac9173ee00408311d01b4298b10, type: 3}
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 6571452960099713040}
   spread: 0.4
   pelletsPerShot: 8
 --- !u!70 &307315192225293138
@@ -198,3 +198,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4005e8a68a4d343a31d4077ed9d3e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupSFX: {fileID: 8300000, guid: 955534b3395ba8842ab8c8e3ec97483f, type: 3}

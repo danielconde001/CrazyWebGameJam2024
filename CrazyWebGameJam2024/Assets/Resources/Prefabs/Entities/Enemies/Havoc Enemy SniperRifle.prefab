@@ -411,6 +411,10 @@ MonoBehaviour:
   chaseStopDelay: 1.5
   searchDuration: 3
   patrolPoints: []
+  enemyDeathSFXList:
+  - {fileID: 8300000, guid: a9e0499aa8063824b9b2fbd7c588788e, type: 3}
+  - {fileID: 8300000, guid: 5e0093450562a4d41a0f16959f95563a, type: 3}
+  - {fileID: 8300000, guid: 42525ed5bf17c214fa001f03e6ba0f3d, type: 3}
 --- !u!114 &4224607471513232232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,6 +427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26bc1ae5d12d47e4cab0f3ceb6206031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explodeSFX: {fileID: 8300000, guid: 6ece30041af3f504ba385302d070612e, type: 3}
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -473,6 +478,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy SniperRifle
       objectReference: {fileID: 0}
+    - target: {fileID: 2707565667308519378, guid: a0710b90a0cf2324294364f682e47bae, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8038801788575301323, guid: f016545c099b1c94d8da9d55b9e22a11, type: 3}
     - target: {fileID: 2707565667308519378, guid: a0710b90a0cf2324294364f682e47bae, type: 3}
       propertyPath: m_Color.b
       value: 0.86274517

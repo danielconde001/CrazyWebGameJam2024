@@ -3359,7 +3359,7 @@ MonoBehaviour:
   m_VoxelSize: 0.083333336
   m_BuildHeightMesh: 0
   m_HideEditorLogs: 0
-  m_NavMeshData: {fileID: 23800000, guid: 35f3716e4d1b5954daf67fb760eaece8, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 279228af638e2e749b8238dcd43dafa3, type: 2}
 --- !u!4 &647309012
 Transform:
   m_ObjectHideFlags: 0
@@ -3692,17 +3692,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 134435954857485448, guid: 0c2323e2f09e5e843b4518300b40538c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 499242300916405984, guid: 0c2323e2f09e5e843b4518300b40538c, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 499242300916405984, guid: 0c2323e2f09e5e843b4518300b40538c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 499242300916405984, guid: 0c2323e2f09e5e843b4518300b40538c, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 499242300916405984, guid: 0c2323e2f09e5e843b4518300b40538c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3710,11 +3714,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1214381622504395827, guid: 0c2323e2f09e5e843b4518300b40538c, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1214381622504395827, guid: 0c2323e2f09e5e843b4518300b40538c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1601643087628801158, guid: 0c2323e2f09e5e843b4518300b40538c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3758,11 +3762,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2768636684256503043, guid: 0c2323e2f09e5e843b4518300b40538c, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2768636684256503043, guid: 0c2323e2f09e5e843b4518300b40538c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2768636684256503043, guid: 0c2323e2f09e5e843b4518300b40538c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3770,15 +3774,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3650905195969849967, guid: 0c2323e2f09e5e843b4518300b40538c, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3650905195969849967, guid: 0c2323e2f09e5e843b4518300b40538c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3650905195969849967, guid: 0c2323e2f09e5e843b4518300b40538c, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3650905195969849967, guid: 0c2323e2f09e5e843b4518300b40538c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3787,6 +3791,14 @@ PrefabInstance:
     - target: {fileID: 6501360262679671737, guid: 0c2323e2f09e5e843b4518300b40538c, type: 3}
       propertyPath: m_Name
       value: HUDManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8213495683495033401, guid: 0c2323e2f09e5e843b4518300b40538c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8213495683495033401, guid: 0c2323e2f09e5e843b4518300b40538c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4611,6 +4623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c3695ce1686bc94f808df46367168d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerDeathSFX: {fileID: 0}
 --- !u!212 &987626918507379931
 SpriteRenderer:
   m_ObjectHideFlags: 0

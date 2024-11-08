@@ -23,7 +23,7 @@ public class EnemyShotgunWeapon : Weapon
             return;
 
         canFire = false;
-        GameManager.Instance().GetAudioSource().PlayOneShot(gunshotClip, 0.4f);
+        AudioManager.Instance().PlaySFX(gunshotClip, 0.5f);
         SpawnBullets();
         
         fireTimer = fireRate * 0.001f;

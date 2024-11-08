@@ -115,7 +115,7 @@ MonoBehaviour:
   gunshotClip: {fileID: 8300000, guid: 3b90cd648203c3545bac30552fc48cc9, type: 3}
   emptyMagClip: {fileID: 8300000, guid: 24c22b6c7fd8df645914244c58bf5eba, type: 3}
   bullet: {fileID: 8406151069148535810, guid: 43394ac9173ee00408311d01b4298b10, type: 3}
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 4441203692656357132}
 --- !u!70 &743439559549166366
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -165,6 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4005e8a68a4d343a31d4077ed9d3e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupSFX: {fileID: 8300000, guid: 955534b3395ba8842ab8c8e3ec97483f, type: 3}
 --- !u!1 &4384334817865102239
 GameObject:
   m_ObjectHideFlags: 0

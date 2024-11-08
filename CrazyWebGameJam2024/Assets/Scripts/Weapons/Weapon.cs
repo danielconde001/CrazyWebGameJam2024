@@ -138,12 +138,12 @@ public class Weapon : MonoBehaviour
         
         if (PlayerManager.Instance().CurrentlyEquippedWeapon.CurrentMagCapacity <= 0)
         {
-            GameManager.Instance().GetAudioSource().PlayOneShot(emptyMagClip, 1f);
+            AudioManager.Instance().PlaySFX(emptyMagClip, 0.5f);
         }
         else
         {
             currentMagCapacity -= 1;
-            GameManager.Instance().GetAudioSource().PlayOneShot(gunshotClip, 0.5f);
+            AudioManager.Instance().PlaySFX(gunshotClip, 0.25f);
             
             ShakeCamera();
             SpawnBullets();

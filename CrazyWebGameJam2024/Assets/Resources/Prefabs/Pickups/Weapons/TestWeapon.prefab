@@ -110,10 +110,11 @@ MonoBehaviour:
   canPenetrate: 0
   maxMagCapacity: 99
   currentMagCapacity: 99
+  cameraShakeForce: 1
   gunshotClip: {fileID: 8300000, guid: 3af557418f586a845a128f65393d3e56, type: 3}
   emptyMagClip: {fileID: 8300000, guid: 24c22b6c7fd8df645914244c58bf5eba, type: 3}
-  bullet: {fileID: 8406151069148535810, guid: b9ab7c2927c2a1b40b232a71bbe3dfb7, type: 3}
-  muzzle: {fileID: 0}
+  bullet: {fileID: 8406151069148535810, guid: 43394ac9173ee00408311d01b4298b10, type: 3}
+  spriteRenderer: {fileID: 1859789520452044731}
 --- !u!70 &243580833839374846
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -163,3 +164,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4005e8a68a4d343a31d4077ed9d3e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupSFX: {fileID: 8300000, guid: 955534b3395ba8842ab8c8e3ec97483f, type: 3}
