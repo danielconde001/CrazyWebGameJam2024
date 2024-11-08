@@ -3301,7 +3301,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4960209933965595173, guid: 0c2323e2f09e5e843b4518300b40538c, type: 3}
       propertyPath: nextSceneName
-      value: Level-002
+      value: Level-004
       objectReference: {fileID: 0}
     - target: {fileID: 4960209933965595173, guid: 0c2323e2f09e5e843b4518300b40538c, type: 3}
       propertyPath: dialogueTrigger

@@ -18,7 +18,11 @@ public class CountdownTimer : MonoBehaviour
     {
         if(TimerOn)
         {
-            if(TimeLeft > 0)
+            if (GameManager.Instance().IsGameOver())
+            {
+                TimerOn = false;
+            }
+            else if(TimeLeft > 0)
             {
                 TimeLeft -= Time.deltaTime;
                 UpdateTimer(TimeLeft);

@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Threading.Tasks;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class Hurtable : MonoBehaviour
@@ -12,10 +11,15 @@ public class Hurtable : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public async void Hurt()
+    public void Hurt()
     {
         spriteRenderer.color = hurtColor;
-        await Task.Delay(200);
+        
+        Invoke("ReturnToWhite", .2f);
+    }
+
+    private void ReturnToWhite()
+    {
         spriteRenderer.color = Color.white;
     }
 }

@@ -2806,6 +2806,11 @@ MonoBehaviour:
         icon: {fileID: 0}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: SURVIVE FOR 30 SECONDS!
+    - character:
+        name: Blue Guy
+        icon: {fileID: 8706313295083242562, guid: 812e55a5009b81248ba0e86c53c4a9f1, type: 3}
+        dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
+      line: Oh no.. THEY ARE COMING!
 --- !u!1 &1347395491
 GameObject:
   m_ObjectHideFlags: 0
