@@ -174,7 +174,7 @@ MonoBehaviour:
         name: Science Guy
         icon: {fileID: 0}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
-      line: Unfortunately, your little Pistol can,t penetrate through that damn shield..
+      line: Unfortunately, your little Pistol can't penetrate through that damn shield..
     - character:
         name: Science Guy
         icon: {fileID: 0}
@@ -189,8 +189,8 @@ MonoBehaviour:
         name: Science Guy
         icon: {fileID: 0}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
-      line: You are the one out here commiting Robot genocide, and yet I'm the one
-        with issues?
+      line: You are the one out here commiting Robot genocide here, and yet I'm the
+        one with issues?
     - character:
         name: Science Guy
         icon: {fileID: 0}
