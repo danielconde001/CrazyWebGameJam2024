@@ -37,14 +37,6 @@ public class GameManager : MonoBehaviour
     private bool gameOver = false;
     private bool levelFinished = false;
 
-    public AudioSource GetAudioSource()
-    {
-        if (audioSource == null)
-            audioSource = GetComponent<AudioSource>();
-        
-        return audioSource;
-    }
-
     public TimeManipulation TimeManipulator
     {
         get

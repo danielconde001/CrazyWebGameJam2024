@@ -354,6 +354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c3695ce1686bc94f808df46367168d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerDeathSFX: {fileID: 8300000, guid: 81d671c129241984ab4334ae3b5f9235, type: 3}
 --- !u!114 &3040495407841551168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,6 +447,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  playerHurtSFXList:
+  - {fileID: 8300000, guid: 2a6132f848f050e418d37e06cf64ca6b, type: 3}
+  - {fileID: 8300000, guid: 372b320033ebda24187b4e94f88e423f, type: 3}
+  - {fileID: 8300000, guid: d027ca48f7d03c84785b2ed922bf2103, type: 3}
+  - {fileID: 8300000, guid: 169c9e0d2ed0edc499ac63173e2cd6dc, type: 3}
 --- !u!1 &5723883466893552417
 GameObject:
   m_ObjectHideFlags: 0

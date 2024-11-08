@@ -378,6 +378,10 @@ MonoBehaviour:
   chaseStopDelay: 1.5
   searchDuration: 3
   patrolPoints: []
+  enemyDeathSFXList:
+  - {fileID: 8300000, guid: a9e0499aa8063824b9b2fbd7c588788e, type: 3}
+  - {fileID: 8300000, guid: 5e0093450562a4d41a0f16959f95563a, type: 3}
+  - {fileID: 8300000, guid: 42525ed5bf17c214fa001f03e6ba0f3d, type: 3}
 --- !u!195 &6564932315338382988
 NavMeshAgent:
   m_ObjectHideFlags: 0

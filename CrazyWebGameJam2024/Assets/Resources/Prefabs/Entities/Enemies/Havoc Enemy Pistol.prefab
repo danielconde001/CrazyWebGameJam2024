@@ -334,6 +334,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4224607471513232232}
+        m_TargetAssemblyTypeName: HavocEnemyExplode, Assembly-CSharp
+        m_MethodName: Explode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 126603121899423627}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
@@ -411,6 +423,10 @@ MonoBehaviour:
   chaseStopDelay: 1.5
   searchDuration: 3
   patrolPoints: []
+  enemyDeathSFXList:
+  - {fileID: 8300000, guid: a9e0499aa8063824b9b2fbd7c588788e, type: 3}
+  - {fileID: 8300000, guid: 5e0093450562a4d41a0f16959f95563a, type: 3}
+  - {fileID: 8300000, guid: 42525ed5bf17c214fa001f03e6ba0f3d, type: 3}
 --- !u!114 &4224607471513232232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,6 +439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26bc1ae5d12d47e4cab0f3ceb6206031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explodeSFX: {fileID: 8300000, guid: 6ece30041af3f504ba385302d070612e, type: 3}
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
