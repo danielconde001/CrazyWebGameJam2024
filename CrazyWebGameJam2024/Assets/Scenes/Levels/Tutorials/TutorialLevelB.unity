@@ -254,17 +254,17 @@ MonoBehaviour:
     dialogueLines:
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: Let's test your reading skills further..
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: Just in case last time was a fluke.
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: Do you understand the shape of an arrow?
 --- !u!1 &216358664
@@ -3274,17 +3274,17 @@ MonoBehaviour:
     dialogueLines:
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: OH!! MY!! GOODNESS!!
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: We got someone who understands basic symbols everybody!
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: Let's now take that Pistol to good use..
 --- !u!1001 &693421454
@@ -3693,7 +3693,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 4
       m_TileMatrixIndex: 0
       m_TileColorIndex: 3
       m_TileObjectToInstantiateIndex: 65535
@@ -3832,16 +3832,16 @@ Tilemap:
   - m_RefCount: 4
     m_Data: {fileID: 11400000, guid: ae82bbbf23562584eb302e8843937bc8, type: 2}
   m_TileSpriteArray:
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 720015725, guid: e15cac0d49e52e743b0ee0d1c4ae2f36, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: -191315735, guid: e15cac0d49e52e743b0ee0d1c4ae2f36, type: 3}
   - m_RefCount: 1
