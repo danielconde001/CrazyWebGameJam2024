@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class LevelCompleteDisplayer : LevelConclusionDisplayer
 {
-    [SerializeField] private int nextSceneIndex = 0;
+    [SerializeField] private string nextSceneName = string.Empty;
     
     protected override void Update()
     {
@@ -10,7 +10,7 @@ public class LevelCompleteDisplayer : LevelConclusionDisplayer
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                SceneManager.Instance().LoadScene(nextSceneIndex);
+                SceneManager.Instance().LoadSceneWithFade(nextSceneName);
             }
         }
     }

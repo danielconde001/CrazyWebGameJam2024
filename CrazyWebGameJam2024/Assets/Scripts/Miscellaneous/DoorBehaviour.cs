@@ -13,8 +13,10 @@ public class DoorBehaviour : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && other.TryGetComponent(out CapsuleCollider2D capsule))
         {
+            if (other != capsule) return;
+            
             entered = true;
             if (!hasDialogue)
             {

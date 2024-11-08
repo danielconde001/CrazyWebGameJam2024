@@ -106,11 +106,11 @@ MonoBehaviour:
   center: {fileID: 2440831337502954240}
   type: 2
   defaultLocalPosition: {x: 0.4, y: 0, z: 0}
-  damage: 35
+  damage: 100
   fireRate: 80
   canPenetrate: 0
-  maxMagCapacity: 30
-  currentMagCapacity: 30
+  maxMagCapacity: 60
+  currentMagCapacity: 60
   cameraShakeForce: 0.1
   gunshotClip: {fileID: 8300000, guid: 3b90cd648203c3545bac30552fc48cc9, type: 3}
   emptyMagClip: {fileID: 8300000, guid: 24c22b6c7fd8df645914244c58bf5eba, type: 3}

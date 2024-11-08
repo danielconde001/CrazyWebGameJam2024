@@ -10,7 +10,8 @@ public class GameManager : MonoBehaviour
     public enum LevelType
     {
         NORMAL,
-        SURVIVAL
+        SURVIVAL,
+        NONE
     }
 
     [SerializeField] private float minTimer;

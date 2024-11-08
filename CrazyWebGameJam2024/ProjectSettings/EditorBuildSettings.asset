@@ -9,14 +9,41 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/MainMenu.unity
     guid: 67909fd2c65017c4db50af947b319d0c
   - enabled: 1
-    path: Assets/Scenes/Levels/TutorialLevelA.unity
+    path: Assets/Scenes/Levels/Tutorials/TutorialLevelA.unity
     guid: 2d37332c8bc96bc448f530fea4eaf761
   - enabled: 1
-    path: Assets/Scenes/Levels/TutorialLevelB.unity
+    path: Assets/Scenes/Levels/Tutorials/TutorialLevelB.unity
     guid: e1ca18cbf4ad1ad419142476cf92f14a
   - enabled: 1
-    path: Assets/Scenes/Levels/TutorialLevelC.unity
+    path: Assets/Scenes/Levels/Tutorials/TutorialLevelC.unity
     guid: 500c6267e334d0a4aacb4871828c1732
+  - enabled: 1
+    path: Assets/Scenes/Levels/Tutorials/TutorialLevelD.unity
+    guid: 3139f51c85de77047a8a36f38a0757b0
+  - enabled: 1
+    path: Assets/Scenes/Levels/Tutorials/TutorialLevelE.unity
+    guid: a739e158670b4fe478a322a9cae4f36d
+  - enabled: 1
+    path: Assets/Scenes/Levels/Tutorials/TutorialLevelF.unity
+    guid: 357b470264541fc4a8fa5a35fe18dfbd
+  - enabled: 1
+    path: Assets/Scenes/Levels/Tutorials/TutorialLevelG.unity
+    guid: 7e1841511ae411b4a85805cf289b3d25
+  - enabled: 1
+    path: Assets/Scenes/Levels/Tutorials/TutorialLevelH.unity
+    guid: 8dad3938f95611f459d29419f34b4c6c
+  - enabled: 1
+    path: Assets/Scenes/Levels/Tutorials/TutorialLevelI.unity
+    guid: 6ab8861c96452484d8ecbd607aa7ee8d
+  - enabled: 1
+    path: Assets/Scenes/Levels/Main/Level-001.unity
+    guid: 4adee5b8e91c97c4ebfa1e1a9afa8b11
+  - enabled: 1
+    path: Assets/Scenes/Levels/Main/Level-002.unity
+    guid: 9fb6bdaa528090349b0df5609cc9e3c7
+  - enabled: 1
+    path: Assets/Scenes/Levels/Main/Level-003.unity
+    guid: 42ff249f34927bb438bab7f2e670fa65
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

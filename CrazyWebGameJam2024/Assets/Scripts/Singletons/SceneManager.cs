@@ -54,6 +54,12 @@ public class SceneManager : MonoBehaviour
         int sceneIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
         LoadScene(sceneIndex);
     }
+    
+    public void LoadCurrentSceneWithFade()
+    {
+        string sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+        LoadSceneWithFade(sceneName);
+    }
 
     private IEnumerator LoadSceneWithFadeAsync(string sceneName, float transitionDuration)
     {

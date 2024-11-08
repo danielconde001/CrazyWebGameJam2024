@@ -48,8 +48,10 @@ public class BulletBehaviour : MonoBehaviour
             Destroy(gameObject);
         }
 
-        else if (collision.tag == enemyTag)
+        else if (collision.tag == enemyTag  && collision.TryGetComponent(out CapsuleCollider2D capsule))
         {
+            if (collision != capsule) return;
+            
             collision.GetComponent<Health>().DeductHealth(damage);
             Destroy(gameObject);
         }
