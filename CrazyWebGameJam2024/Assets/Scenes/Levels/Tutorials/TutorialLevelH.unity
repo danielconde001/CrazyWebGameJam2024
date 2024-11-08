@@ -167,12 +167,12 @@ MonoBehaviour:
     dialogueLines:
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: 'Uh oh! Watch for those GREEN robots. '
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: There's no where to hide from these guys. they can smell you anywhere.
     - character:
@@ -182,23 +182,23 @@ MonoBehaviour:
       line: Robots can smell?
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: Stop questioning the character design of this game!
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: These Green Robots will immediately charge at you, as soon were done
         talking for some reason.
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: THE MOMENT THEY GET NEAR YOU, YOU'RE DEAD!
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: But not without a fight! Go get 'em.
     - character:
@@ -208,7 +208,7 @@ MonoBehaviour:
       line: Wait! You took my Pistol!
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: Relax! Just take that shotgun over there.
 --- !u!1 &216358664
@@ -3659,7 +3659,7 @@ MonoBehaviour:
     dialogueLines:
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: Nice!
 --- !u!1 &2051611763

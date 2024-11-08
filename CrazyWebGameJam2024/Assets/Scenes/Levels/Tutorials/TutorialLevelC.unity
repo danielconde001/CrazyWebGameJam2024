@@ -167,23 +167,23 @@ MonoBehaviour:
     dialogueLines:
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: Whoa! We got a natural over here.
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: Your hands are as quick as mine, except yours is for Shooting, and mines
         is for..
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: -- typing stuff on my computer... yeah.
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: Anyway, I got something to show you in the next Level.
     - character:
@@ -239,23 +239,23 @@ MonoBehaviour:
     dialogueLines:
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: Let's see if you can shoot!
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: Ever seen a Computer Mouse before? You shoot by pressing the Left button
         of that thing..
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: Let's test it on that robot over there.
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: Don't worry, he's HARMLESS.
 --- !u!1 &87704472
@@ -2932,17 +2932,17 @@ MonoBehaviour:
     dialogueLines:
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: Psyche! I lied! He was DEFINITELY HOSTILE!
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: Looks like your hands aren't quick enough..
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: Let's fix that real quick!
 --- !u!1001 &693421454

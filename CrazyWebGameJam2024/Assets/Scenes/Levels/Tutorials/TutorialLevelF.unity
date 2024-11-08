@@ -167,17 +167,17 @@ MonoBehaviour:
     dialogueLines:
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: Looks like that Robot has a SHIELD.
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: Unfortunately, your little Pistol can't penetrate through that damn shield..
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: Hehe.. penetrate..
     - character:
@@ -187,23 +187,23 @@ MonoBehaviour:
       line: Bro, you have issues..
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: You are the one out here commiting Robot genocide here, and yet I'm the
         one with issues?
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: Anyway, you need to SHOOT that robot from the BEHIND.
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: Shooting that robot from the front is pointless.
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: Figure it out.
 --- !u!1 &216358664
@@ -3420,7 +3420,7 @@ MonoBehaviour:
     dialogueLines:
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: That was smart! Bravo!
 --- !u!1001 &2028778740

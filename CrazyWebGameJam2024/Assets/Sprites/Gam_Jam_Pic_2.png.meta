@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f24be67870604bc468159a99b6692d36
+guid: 5d920be41dd61c2448724f7dcc071b61
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4141240776653804396
-    second: ZONED IN Cover_0
+      213: 183418772360363445
+    second: Gam_Jam_Pic_2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ZONED IN Cover_0
+      name: Gam_Jam_Pic_2_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 54
         y: 0
-        width: 1920
-        height: 1080
+        width: 1820
+        height: 1793
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c6310dd8b84a87930800000000000000
-      internalID: 4141240776653804396
+      spriteID: 5bd7da3d662ab8200800000000000000
+      internalID: 183418772360363445
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      ZONED IN Cover_0: 4141240776653804396
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
