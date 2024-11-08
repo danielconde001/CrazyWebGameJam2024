@@ -167,7 +167,7 @@ MonoBehaviour:
     dialogueLines:
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: That bullet seemed a lot easier to dodge did it?
     - character:
@@ -177,12 +177,12 @@ MonoBehaviour:
       line: Yeah, it sure did!
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: Wow that eye looks soo creepy, not gonna lie..
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: Let's keep going.
 --- !u!1 &77866010
@@ -689,12 +689,12 @@ MonoBehaviour:
     dialogueLines:
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: Wow, even with Slow Mo you still suck!
     - character:
         name: Science Guy
-        icon: {fileID: 0}
+        icon: {fileID: 183418772360363445, guid: 5d920be41dd61c2448724f7dcc071b61, type: 3}
         dialogueClip: {fileID: 8300000, guid: f73229d7b3ce5c142a5f69288bc3ab3e, type: 3}
       line: Let's try that again shall we?
 --- !u!1001 &693421454

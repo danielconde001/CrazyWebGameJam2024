@@ -145,13 +145,6 @@ public class GameManager : MonoBehaviour
 
     private void FinishLevel()
     {
-        EnemyKillable[] allEnemies = FindObjectsByType<EnemyKillable>(FindObjectsSortMode.None);
-
-        for (int i = 0; i < allEnemies.Length; i++)
-        { 
-            allEnemies[i].Death();
-        }
-        
         levelFinished = true;
         HUDManager.Instance().LevelCompleteDisplayer.Display();
     }
@@ -173,6 +166,8 @@ public class GameManager : MonoBehaviour
     
     public void CheckLevelGoalStatus(float currentSurvivalTimer = 0f)
     {
+        if (gameOver || levelFinished) return;
+        
         if (levelType == LevelType.NORMAL)
         {
             if (currentKillCount < killCountGoal)

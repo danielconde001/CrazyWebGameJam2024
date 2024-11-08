@@ -250,8 +250,9 @@ public class EnemyAI : MonoBehaviour
     }
 
     protected virtual void Update()
-    {
+    { 
         if (GameManager.Instance().HasLevelStarted() == false) return;
+        if (GameManager.Instance().IsGameOver() || GameManager.Instance().IsLevelFinished()) return;
         
         BasePivotFix();
 
